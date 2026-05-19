@@ -14,6 +14,7 @@ struct {
 
 Clock clock1;
 Time dt;
+void bg_animation();
 
 int main() {
 	srand(time(0));
@@ -37,4 +38,8 @@ int main() {
 		window1.draw(chunli_bg_s);
 		window1.display();
 	}
+}
+
+void bg_animation() {
+	 
 }
