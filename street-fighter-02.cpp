@@ -14,38 +14,42 @@ struct {
 }texture_elements;
 
 void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_bg_mom, Sprite &chunli_bg_hen) {
-	if ((time_accum <= 1500) || (time_accum >= 1900 && time_accum < 2900)) {
+	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
 		chunli_bg_hen.setTextureRect(IntRect(1264, 592, 160, 160));
 	}
-	else if ((time_accum >= 1500 && time_accum < 1700) || (time_accum >= 2900 && time_accum < 3100) ) {
+	else if ((1500 < time_accum && time_accum <= 1650) || (1800 < time_accum && time_accum <= 1950) || (2950 < time_accum && time_accum <= 3100) || (3250 < time_accum && time_accum <= 3400)) {
 		chunli_bg_hen.setTextureRect(IntRect(1264, 752, 160, 160));
 	}
-	else if ((time_accum >= 1700 && time_accum < 1900) || (time_accum >= 3100 && time_accum <= 3400)) {
+	else if ((time_accum > 1650 && time_accum <= 1800) || (time_accum > 3100 && time_accum <= 3250)) {
 		chunli_bg_hen.setTextureRect(IntRect(1264, 912, 160, 160));
 	}
 
-	if ((time_accum <= 1500) || (time_accum>2000 && time_accum<=3000)) {
+	if ((time_accum <= 1000) || (time_accum > 1900 && time_accum <= 2900)) {
 		chunli_bg_fishermen.setTextureRect(IntRect(0, 360, 480, 360));
 	}
-	else if ((time_accum > 1500 && time_accum <= 1750)|| (time_accum>3000 && time_accum<=3200)) {
+	else if ((1000 < time_accum && time_accum <= 1180) || (1360 < time_accum && time_accum <= 1540) || (1720 < time_accum && time_accum <= 1900) || (2900 < time_accum && time_accum <= 3080) || (3260 < time_accum && time_accum <= 3400)) {
 		chunli_bg_fishermen.setTextureRect(IntRect(0, 0, 480, 360));
 	}
-	else if ((time_accum > 1750 && time_accum <= 2000)|| (time_accum>3200)) {
+	else if ((1180 < time_accum && time_accum <= 1360) || (1540 < time_accum && time_accum <= 1720) || (3080 < time_accum && time_accum <= 3260)) {
 		chunli_bg_fishermen.setTextureRect(IntRect(0, 720, 480, 360));
 	}
 
-	if (time_accum <= 3000) {
+	if ((time_accum <= 2000) || (3100 < time_accum && time_accum <= 3400)) {
 		chunli_bg_mom.setTextureRect(IntRect(640, 0, 440, 400));
 	}
-	else if (3000 < time_accum && time_accum <= 3200) {
+	else if ((2000 < time_accum && time_accum <= 2200) || (3000 < time_accum && time_accum <= 3100)) {
 		chunli_bg_mom.setTextureRect(IntRect(640, 400, 440, 400));
 	}
-	else if (3200 < time_accum && time_accum <=3400) {
+	else if (2200 < time_accum && time_accum <= 3000) {
 		chunli_bg_mom.setTextureRect(IntRect(640, 800, 440, 400));
 	}
 	if (time_accum>3400){
 		time_accum = 0;
 	}
+}
+
+void bg_movement() {
+
 }
 
 int main() {
