@@ -48,7 +48,7 @@ void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_b
 	}
 }
 
-void bg_movement() {
+void bg_upward_animation() {
 
 }
 
@@ -91,6 +91,10 @@ int main() {
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window1.close();
 		};
+
+		if (Keyboard::isKeyPressed(Keyboard::Space)) {
+			bg_upward_animation();
+		}
 
 		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
 
