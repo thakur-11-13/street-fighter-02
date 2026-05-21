@@ -52,19 +52,19 @@ void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_b
 }
 
 void bg_upward_animation(int &upward_animation_tracker,Sprite &chunli_bg_s,Sprite &chunli_bg_mom,Sprite &chunli_bg_fishermen,Sprite &chunli_bg_hen,int &key_press_state,int &counter) {
-	if (counter <= 16) {
-		chunli_bg_s.setTextureRect(IntRect(0, (160 - 10 * counter), 1920, 1080));
-		chunli_bg_fishermen.setPosition(800, 420 + (10 * counter));
-		chunli_bg_mom.setPosition(280, 380 + (10 * counter));
-		chunli_bg_hen.setPosition(1360, 580 + (10 * counter));
+	if (counter <= 32) {
+		chunli_bg_s.setTextureRect(IntRect(0, (160 - 5 * counter), 1920, 1080));
+		chunli_bg_fishermen.setPosition(800, 420 + (5 * counter));
+		chunli_bg_mom.setPosition(280, 380 + (5 * counter));
+		chunli_bg_hen.setPosition(1360, 580 + (5 * counter));
 	}
-	else if (16 < counter && counter <= 32) {
-		chunli_bg_s.setTextureRect(IntRect(0,10 * (counter-16), 1920, 1080));
-		chunli_bg_fishermen.setPosition(800, 580 - (10 * (counter-16)));
-		chunli_bg_mom.setPosition(280, 540 - (10 * (counter-16)));
-		chunli_bg_hen.setPosition(1360, 740 - (10 * (counter-16)));
+	else if (32 < counter && counter <= 64) {
+		chunli_bg_s.setTextureRect(IntRect(0,5 * (counter-32), 1920, 1080));
+		chunli_bg_fishermen.setPosition(800, 580 - (5 * (counter-32)));
+		chunli_bg_mom.setPosition(280, 540 - (5 * (counter-32)));
+		chunli_bg_hen.setPosition(1360, 740 - (5 * (counter-32)));
 	}
-	else if (counter > 32) {
+	else if (counter > 64) {
 		key_press_state = key_press_state & (~SPACE);
 	}
 }
@@ -110,7 +110,7 @@ int main() {
 		dt = clock1.restart();
 		time_accum = time_accum + dt.asMilliseconds();
 		time_accum_2 = time_accum_2 + dt.asMilliseconds();
-		if (time_accum_2 >= 20.25) {
+		if (time_accum_2 >= 11) {
 			counter = counter + 1;
 			time_accum_2 = 0;
 		}
