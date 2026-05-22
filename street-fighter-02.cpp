@@ -110,9 +110,9 @@ int main() {
 		dt = clock1.restart();
 		time_accum = time_accum + dt.asMilliseconds();
 		time_accum_2 = time_accum_2 + dt.asMilliseconds();
-		if (time_accum_2 >= 11) {
+		while (time_accum_2 >= 10) {
 			counter = counter + 1;
-			time_accum_2 = 0;
+			time_accum_2 = time_accum_2 - 10;
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
