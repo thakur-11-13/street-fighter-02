@@ -53,7 +53,7 @@ void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_b
 	}
 }
 
-void bg_upward_animation(int &upward_animation_tracker,Sprite &chunli_bg_s,Sprite &chunli_bg_mom,Sprite &chunli_bg_fishermen,Sprite &chunli_bg_hen,int &key_press_state,int &counter) {
+void bg_upward_animation(int &upward_animation_tracker,Sprite &chunli_bg_s,Sprite &chunli_bg_mom,Sprite &chunli_bg_fishermen,Sprite &chunli_bg_hen,int &key_press_state) {
 	if (counter <= 32) {
 		chunli_bg_s.setTextureRect(IntRect(0, (160 - 5 * counter), 1920, 1080));
 		chunli_bg_fishermen.setPosition(800, 420 + (5 * counter));
@@ -84,7 +84,6 @@ int main() {
 	int time_accum_2 = 0;
 	int upward_animation_tracker = 0;
 	int key_press_state = 0;
-	int counter=1;
 
 	srand(time(0));
 
@@ -126,7 +125,6 @@ int main() {
 		time_accum = time_accum + dt.asMilliseconds();
 		time_accum_2 = time_accum_2 + dt.asMilliseconds();
 		while (time_accum_2 >= 10) {
-			counter = counter + 1;
 			time_accum_2 = time_accum_2 - 10;
 		}
 
@@ -137,11 +135,10 @@ int main() {
 		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state&SPACE)!=SPACE) {
 			key_press_state = key_press_state | SPACE;
 			time_accum_2 = 0;
-			counter = 1;
 		}
 
 		if (key_press_state == SPACE) {
-			bg_upward_animation(upward_animation_tracker, chunli_bg_s,chunli_bg_mom,chunli_bg_fishermen,chunli_bg_hen, key_press_state,counter);
+			bg_upward_animation(upward_animation_tracker, chunli_bg_s,chunli_bg_mom,chunli_bg_fishermen,chunli_bg_hen, key_press_state);
 		}
 
 		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
