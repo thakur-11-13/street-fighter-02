@@ -11,10 +11,12 @@ using namespace std;
 struct {
 	Texture chunli_bg_t;
 	Texture chunli_bg_animation_t;
+	Texture chunli_char_t;
 }texture_elements;
 
-constexpr auto SPACE=1<<0;
-constexpr auto L_ARRROW=1<<1;
+constexpr auto ANYKEY = 1 << 0;
+constexpr auto SPACE = 1 << 1;
+constexpr auto L_ARRROW = 1 << 2;
 
 void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_bg_mom, Sprite &chunli_bg_hen) {
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
@@ -69,6 +71,11 @@ void bg_upward_animation(int &upward_animation_tracker,Sprite &chunli_bg_s,Sprit
 	}
 }
 
+void chunli_idle_animation(Sprite &chunli_char) {
+	chunli_char.setTextureRect(IntRect(16, 34, 72, 85));
+	chunli_char.setPosition(272,544);
+}
+
 int main() {
 
 	Time dt;
@@ -86,21 +93,29 @@ int main() {
 
 	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg2.png");
 	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements.png");
+	(texture_elements.chunli_char_t).loadFromFile("ChunLi Sprites/ChunLi.png");
+
+	(texture_elements.chunli_bg_t).setSmooth(false);
+	(texture_elements.chunli_bg_animation_t).setSmooth(false);
+	(texture_elements.chunli_char_t).setSmooth(false);
 
 	Sprite chunli_bg_s;
 	Sprite chunli_bg_fishermen;
 	Sprite chunli_bg_mom;
 	Sprite chunli_bg_hen;
+	Sprite chunli_char;
 
-	Sprite* drawing[] = { &chunli_bg_s,&chunli_bg_fishermen,&chunli_bg_mom,&chunli_bg_hen };
+	Sprite* drawing[] = { &chunli_bg_s,&chunli_bg_fishermen,&chunli_bg_mom,&chunli_bg_hen,&chunli_char };
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_mom.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_hen.setTexture(texture_elements.chunli_bg_animation_t);
+	chunli_char.setTexture(texture_elements.chunli_char_t);
 
 	chunli_bg_s.setTextureRect(IntRect(0, 160, 1920, 1080));
-
+	
+	chunli_char.setScale(5.0f, 5.0f);
 	chunli_bg_fishermen.setPosition(800, 420);
 	chunli_bg_mom.setPosition(280, 380);
 	chunli_bg_hen.setPosition(1360, 580);
@@ -130,6 +145,7 @@ int main() {
 		}
 
 		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
+		chunli_idle_animation(chunli_char);
 
 		window1.clear();
 		for (Sprite* i : drawing) {
