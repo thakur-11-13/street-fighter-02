@@ -91,6 +91,10 @@ void chunli_idle_animation(Sprite& chunli_char, int& time_accum_3) {
 	}
 }
 
+void chunli_walk_animation_f(Sprite& chunli_char,int& time_accum_3) {
+
+}
+
 int main() {
 
 	int dt;
@@ -159,6 +163,9 @@ int main() {
 			random_bool_store = random_bool_store | (1 << 0);
 			random_bool_store = random_bool_store & (~(1 << 1));
 			time_accum_2 = 0;
+		}
+		if (Keyboard::isKeyPressed((Keyboard::Left))) {
+
 		}
 
 		if ((key_press_state & SPACE) == SPACE) {
