@@ -53,20 +53,28 @@ void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_b
 	}
 }
 
-void bg_upward_animation(int &upward_animation_tracker,Sprite &chunli_bg_s,Sprite &chunli_bg_mom,Sprite &chunli_bg_fishermen,Sprite &chunli_bg_hen,int &key_press_state,int &counter) {
-	if (counter <= 32) {
-		chunli_bg_s.setTextureRect(IntRect(0, (160 - 5 * counter), 1920, 1080));
-		chunli_bg_fishermen.setPosition(800, 420 + (5 * counter));
-		chunli_bg_mom.setPosition(280, 380 + (5 * counter));
-		chunli_bg_hen.setPosition(1360, 580 + (5 * counter));
+void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& random_bool_store) {
+	while ((time_accum_2 >= 10) && ((random_bool_store & (1 << 0)) == (1 << 0))) {
+		chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top - 5), 1920, 1080));
+		chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y + 5);
+		chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y + 5);
+		chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y + 5);
+		time_accum_2 = time_accum_2 - 10;
+		if (chunli_bg_s.getTextureRect().top == 0) {
+			random_bool_store = random_bool_store & (~(1 << 0));
+		}
 	}
-	else if (32 < counter && counter <= 64) {
-		chunli_bg_s.setTextureRect(IntRect(0,5 * (counter-32), 1920, 1080));
-		chunli_bg_fishermen.setPosition(800, 580 - (5 * (counter-32)));
-		chunli_bg_mom.setPosition(280, 540 - (5 * (counter-32)));
-		chunli_bg_hen.setPosition(1360, 740 - (5 * (counter-32)));
+	while ((time_accum_2 >= 10) && ((random_bool_store & (1 << 0)) != (1 << 0))) {
+		chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top + 5), 1920, 1080));
+		chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y - 5);
+		chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y - 5);
+		chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y - 5);
+		time_accum_2 = time_accum_2 - 10;
+		if (chunli_bg_s.getTextureRect().top == 160) {
+			random_bool_store = key_press_state | (1 << 1);
+		}
 	}
-	else if (counter > 64) {
+	if ((random_bool_store & (1 << 1)) == (1 << 1)) {
 		key_press_state = key_press_state & (~SPACE);
 	}
 }
@@ -78,13 +86,12 @@ void chunli_idle_animation(Sprite &chunli_char) {
 
 int main() {
 
-	Time dt;
+	int dt;
 
 	int time_accum = 0;
 	int time_accum_2 = 0;
-	int upward_animation_tracker = 0;
 	int key_press_state = 0;
-	int counter=1;
+	int random_bool_store = 0;	//first 2 digits for bg_upward_animation()
 
 	srand(time(0));
 
@@ -105,7 +112,7 @@ int main() {
 	Sprite chunli_bg_hen;
 	Sprite chunli_char;
 
-	Sprite* drawing[] = { &chunli_bg_s,&chunli_bg_fishermen,&chunli_bg_mom,&chunli_bg_hen,&chunli_char };
+	Sprite* drawing[] = { &chunli_bg_s,&chunli_bg_fishermen,&chunli_bg_mom,&chunli_bg_hen };
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
@@ -122,13 +129,11 @@ int main() {
 
 	Clock clock1;
 	while (window1.isOpen()) {
-		dt = clock1.restart();
-		time_accum = time_accum + dt.asMilliseconds();
-		time_accum_2 = time_accum_2 + dt.asMilliseconds();
-		while (time_accum_2 >= 10) {
-			counter = counter + 1;
-			time_accum_2 = time_accum_2 - 10;
-		}
+
+		dt = (clock1.restart()).asMilliseconds();
+
+		time_accum = time_accum + dt;
+		time_accum_2 = time_accum_2 + dt;
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window1.close();
@@ -136,12 +141,13 @@ int main() {
 
 		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state&SPACE)!=SPACE) {
 			key_press_state = key_press_state | SPACE;
+			random_bool_store = random_bool_store | (1 << 0);
+			random_bool_store = random_bool_store & (~(1 << 1));
 			time_accum_2 = 0;
-			counter = 1;
 		}
 
-		if (key_press_state == SPACE) {
-			bg_upward_animation(upward_animation_tracker, chunli_bg_s,chunli_bg_mom,chunli_bg_fishermen,chunli_bg_hen, key_press_state,counter);
+		if ((key_press_state & SPACE) == SPACE) {
+			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, random_bool_store);
 		}
 
 		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
