@@ -86,6 +86,8 @@ void chunli_idle_animation(Sprite &chunli_char) {
 
 int main() {
 
+	int dt;
+
 	int time_accum = 0;
 	int time_accum_2 = 0;
 	int key_press_state = 0;
@@ -127,8 +129,11 @@ int main() {
 
 	Clock clock1;
 	while (window1.isOpen()) {
-		time_accum = time_accum + (clock1.restart()).asMilliseconds();
-		time_accum_2 = time_accum_2 + (clock1.restart()).asMilliseconds();
+
+		dt = (clock1.restart()).asMilliseconds();
+
+		time_accum = time_accum + dt;
+		time_accum_2 = time_accum_2 + dt;
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window1.close();
