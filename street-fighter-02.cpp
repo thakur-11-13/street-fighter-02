@@ -53,7 +53,7 @@ void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_b
 	}
 }
 
-void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& random_bool_store) {
+void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2,int& time_accum_3, int& random_bool_store) {
 	while ((time_accum_2 >= 10) && ((random_bool_store & (1 << 0)) == (1 << 0))) {
 		chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top - 5), 1920, 1080));
 		chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y + 5);
@@ -76,12 +76,19 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 	}
 	if ((random_bool_store & (1 << 1)) == (1 << 1)) {
 		key_press_state = key_press_state & (~SPACE);
+		time_accum_3 = 0;
 	}
 }
 
-void chunli_idle_animation(Sprite &chunli_char) {
-	chunli_char.setTextureRect(IntRect(16, 34, 72, 85));
-	chunli_char.setPosition(272,544);
+void chunli_idle_animation(Sprite& chunli_char, int& time_accum_3) {
+
+	if (time_accum_3 >= 160 && (chunli_char.getTextureRect()).left >= 256) {
+		chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));
+	}
+	while (time_accum_3 >= 160 && ((chunli_char.getTextureRect()).left)<256) {
+		time_accum_3 = time_accum_3 - 160;
+		chunli_char.setTextureRect(IntRect(((chunli_char.getTextureRect()).left)+80, 32, 72, 87));
+	}
 }
 
 int main() {
@@ -90,6 +97,7 @@ int main() {
 
 	int time_accum = 0;
 	int time_accum_2 = 0;
+	int time_accum_3 = 0;
 	int key_press_state = 0;
 	int random_bool_store = 0;	//first 2 digits for bg_upward_animation()
 
@@ -111,21 +119,27 @@ int main() {
 	Sprite chunli_bg_mom;
 	Sprite chunli_bg_hen;
 	Sprite chunli_char;
-
-	Sprite* drawing[] = { &chunli_bg_s,&chunli_bg_fishermen,&chunli_bg_mom,&chunli_bg_hen };
+	Sprite char_shadow;
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_mom.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_hen.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_char.setTexture(texture_elements.chunli_char_t);
+	char_shadow.setTexture(texture_elements.chunli_char_t);
 
 	chunli_bg_s.setTextureRect(IntRect(0, 160, 1920, 1080));
+	chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));
+	char_shadow.setTextureRect(IntRect(14, 135, 74, 12));
 	
-	chunli_char.setScale(5.0f, 5.0f);
 	chunli_bg_fishermen.setPosition(800, 420);
 	chunli_bg_mom.setPosition(280, 380);
 	chunli_bg_hen.setPosition(1360, 580);
+	chunli_char.setPosition(326, 527);
+	char_shadow.setPosition(321, 927);
+
+	chunli_char.setScale(5.0f, 5.0f);
+	char_shadow.setScale(5.0f, 5.0f);
 
 	Clock clock1;
 	while (window1.isOpen()) {
@@ -134,11 +148,12 @@ int main() {
 
 		time_accum = time_accum + dt;
 		time_accum_2 = time_accum_2 + dt;
+		time_accum_3 = time_accum_3 + dt;
 
+		key_press_state = key_press_state & (~ANYKEY);
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window1.close();
 		};
-
 		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state&SPACE)!=SPACE) {
 			key_press_state = key_press_state | SPACE;
 			random_bool_store = random_bool_store | (1 << 0);
@@ -147,16 +162,21 @@ int main() {
 		}
 
 		if ((key_press_state & SPACE) == SPACE) {
-			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, random_bool_store);
+			key_press_state = key_press_state | ANYKEY;
+			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2,time_accum_3, random_bool_store);
 		}
-
 		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
-		chunli_idle_animation(chunli_char);
+		if (((key_press_state & ANYKEY) != ANYKEY)) {
+			chunli_idle_animation(chunli_char,time_accum_3);
+		}
 
 		window1.clear();
-		for (Sprite* i : drawing) {
-			window1.draw(*i);
-		}
+		window1.draw(chunli_bg_s);
+		window1.draw(chunli_bg_fishermen);
+		window1.draw(chunli_bg_mom);
+		window1.draw(chunli_bg_hen);
+		window1.draw(char_shadow);
+		window1.draw(chunli_char);
 		window1.display();
 	}
 }
