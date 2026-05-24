@@ -4,6 +4,7 @@
 #include <time.h>
 #include <sstream>
 #include <iostream>
+#include <cmath>
 
 using namespace sf;
 using namespace std;
@@ -16,7 +17,8 @@ struct {
 
 constexpr auto ANYKEY = 1 << 0;
 constexpr auto SPACE = 1 << 1;
-constexpr auto L_ARRROW = 1 << 2;
+constexpr auto LEFT = 1 << 2;
+constexpr auto RIGHT = 1 << 3;
 
 void bg_animation(int &time_accum, Sprite &chunli_bg_fishermen, Sprite &chunli_bg_mom, Sprite &chunli_bg_hen) {
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
@@ -91,17 +93,59 @@ void chunli_idle_animation(Sprite& chunli_char, int& time_accum_3) {
 	}
 }
 
-void chunli_walk_animation_f(Sprite& chunli_char,int& time_accum_3) {
-
+void chunli_walk_animation_f(Sprite& chunli_char,int &frame_counter) {
+	switch (frame_counter) {
+	case 1:
+		chunli_char.setTextureRect(IntRect(0, 164, 78, 84));
+		break;
+	case 2:
+		chunli_char.setTextureRect(IntRect(78, 161, 71, 87));
+		break;
+	case 3:
+		chunli_char.setTextureRect(IntRect(149, 160, 65, 88));
+		break;
+	case 4:
+		chunli_char.setTextureRect(IntRect(214, 159, 62, 89));
+		break;
+	case 5:
+		chunli_char.setTextureRect(IntRect(276, 160, 67, 88));
+		break;
+	case 6:
+		chunli_char.setTextureRect(IntRect(343, 161, 76, 87));
+		break;
+	case 7:
+		chunli_char.setTextureRect(IntRect(419, 162, 81, 86));
+		break;
+	case 8:
+		chunli_char.setTextureRect(IntRect(500, 161, 76, 87));
+		break;
+	case 9:
+		chunli_char.setTextureRect(IntRect(576, 160, 67, 88));
+		break;
+	case 10:
+		chunli_char.setTextureRect(IntRect(643, 159, 62, 89));
+		break;
+	case 11:
+		chunli_char.setTextureRect(IntRect(705, 160, 65, 88));
+		break;
+	case 12:
+		chunli_char.setTextureRect(IntRect(643, 159, 62, 89));
+		break;
+	case 13:
+		chunli_char.setTextureRect(IntRect(0, 164, 78, 84));
+		frame_counter = 2;
+		break;
+	}
 }
 
 int main() {
 
-	int dt;
+	float dt;
 
 	int time_accum = 0;
 	int time_accum_2 = 0;
 	int time_accum_3 = 0;
+	int frame_counter = 1;
 	int key_press_state = 0;
 	int random_bool_store = 0;	//first 2 digits for bg_upward_animation()
 
@@ -155,27 +199,76 @@ int main() {
 		time_accum_3 = time_accum_3 + dt;
 
 		key_press_state = key_press_state & (~ANYKEY);
+
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window1.close();
 		};
-		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state&SPACE)!=SPACE) {
+		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state & SPACE) != SPACE) {
 			key_press_state = key_press_state | SPACE;
 			random_bool_store = random_bool_store | (1 << 0);
 			random_bool_store = random_bool_store & (~(1 << 1));
 			time_accum_2 = 0;
+		};
+		if (Keyboard::isKeyPressed((Keyboard::Right)) && (key_press_state & RIGHT) != RIGHT) {
+			key_press_state = key_press_state | RIGHT;
+			key_press_state = key_press_state | ANYKEY;
+			time_accum_3 = 0;
+			frame_counter = 1;
 		}
-		if (Keyboard::isKeyPressed((Keyboard::Left))) {
+		else if ((!(Keyboard::isKeyPressed((Keyboard::Right)))) && ((key_press_state & RIGHT) == RIGHT)) {
+			key_press_state = key_press_state & (~RIGHT);
+			key_press_state = key_press_state & (~ANYKEY);
+			time_accum_3 = 0;
+			chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));
+		};
+		if (Keyboard::isKeyPressed((Keyboard::Left)) && (key_press_state & LEFT) != LEFT) {
+			key_press_state = key_press_state | LEFT;
+			time_accum_3 = 0;
+			frame_counter = 1;
+		}
+		else if ((!(Keyboard::isKeyPressed((Keyboard::Left)))) && ((key_press_state & LEFT) == LEFT)) {
+			key_press_state = key_press_state & (~LEFT);
+			key_press_state = key_press_state & (~ANYKEY);
+			time_accum_3 = 0;
+		};
 
-		}
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		if ((key_press_state & SPACE) == SPACE) {
 			key_press_state = key_press_state | ANYKEY;
-			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2,time_accum_3, random_bool_store);
-		}
-		bg_animation(time_accum,chunli_bg_fishermen,chunli_bg_mom,chunli_bg_hen);
+			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store);
+		};
 		if (((key_press_state & ANYKEY) != ANYKEY)) {
-			chunli_idle_animation(chunli_char,time_accum_3);
+			chunli_idle_animation(chunli_char, time_accum_3);
+		};
+		if ((key_press_state & RIGHT) == RIGHT) {
+			while (time_accum_3 >=90) {
+				time_accum_3 = time_accum_3 - 90;
+				frame_counter = frame_counter + 1;
+			}
+			chunli_char.setPosition(chunli_char.getPosition().x + round(dt * 0.5),chunli_char.getPosition().y);
+			char_shadow.setPosition(char_shadow.getPosition().x + round(dt * 0.5), char_shadow.getPosition().y);
+			chunli_walk_animation_f(chunli_char, frame_counter);
 		}
+		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen);
 
 		window1.clear();
 		window1.draw(chunli_bg_s);
