@@ -260,8 +260,8 @@ int main() {
 			chunli_idle_animation(chunli_char, time_accum_3);
 		};
 		if ((key_press_state & RIGHT) == RIGHT) {
-			while (time_accum_3 >=90) {
-				time_accum_3 = time_accum_3 - 90;
+			while (time_accum_3 >=70) {
+				time_accum_3 = time_accum_3 - 70;
 				frame_counter = frame_counter + 1;
 			}
 			chunli_char.setPosition(chunli_char.getPosition().x + round(dt * 0.5),chunli_char.getPosition().y);
