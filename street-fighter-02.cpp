@@ -158,6 +158,7 @@ int main() {
 	int frame_counter = 1;
 	int key_press_state = 0;
 	int random_bool_store = 0;	//first 2 digits for bg_upward_animation()
+	int anchor_point;
 
 	srand(time(0));
 
@@ -178,6 +179,7 @@ int main() {
 	Sprite chunli_bg_hen;
 	Sprite chunli_char;
 	Sprite char_shadow;
+	Sprite hitbox;
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
@@ -198,6 +200,8 @@ int main() {
 
 	chunli_char.setScale(5.0f, 5.0f);
 	char_shadow.setScale(5.0f, 5.0f);
+
+	anchor_point = chunli_char.getPosition().x + round((chunli_char.getTextureRect().width) / 2);
 
 	Clock clock1;
 	while (window1.isOpen()) {
@@ -230,7 +234,7 @@ int main() {
 			key_press_state = key_press_state & (~RIGHT);
 			key_press_state = key_press_state & (~ANYKEY);
 			time_accum_3 = 0;
-			chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));
+			chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
 			char_shadow.setPosition(char_shadow.getPosition().x + 45, char_shadow.getPosition().y);
 		};
 		if (Keyboard::isKeyPressed((Keyboard::Left)) && (key_press_state & LEFT) != LEFT) {
@@ -272,8 +276,8 @@ int main() {
 			chunli_idle_animation(chunli_char, time_accum_3,char_shadow);
 		};
 		if ((key_press_state & RIGHT) == RIGHT) {
-			while (time_accum_3 >= 65) {
-				time_accum_3 = time_accum_3 - 65;
+			while (time_accum_3 >= 50) {
+				time_accum_3 = time_accum_3 - 50;
 				if (frame_counter < 12) {
 					frame_counter = frame_counter + 1;
 				}
@@ -281,10 +285,12 @@ int main() {
 					frame_counter = 1;
 				}
 			}
-			chunli_char.setPosition(chunli_char.getPosition().x + round(dt * 0.3), chunli_char.getPosition().y);
-			char_shadow.setPosition(char_shadow.getPosition().x + round(dt * 0.3), char_shadow.getPosition().y);
+			anchor_point = anchor_point + round(dt * 0.8);
+			//char_shadow.setPosition(char_shadow.getPosition().x + round(dt * 0.8), char_shadow.getPosition().y);
 			chunli_walk_animation_f(chunli_char, frame_counter);
-		}
+			chunli_char.setPosition(anchor_point-round(chunli_char.getTextureRect().width/2),chunli_char.getPosition().y);
+
+		};
 		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen);
 
 		window1.clear();
