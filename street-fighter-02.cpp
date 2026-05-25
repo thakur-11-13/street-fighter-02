@@ -158,7 +158,6 @@ int main() {
 	int frame_counter = 1;
 	int key_press_state = 0;
 	int random_bool_store = 0;	//first 2 digits for bg_upward_animation()
-	int anchor_point;
 
 	srand(time(0));
 
