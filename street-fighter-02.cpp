@@ -358,8 +358,6 @@ int main() {
 
 
 
-
-
 		if ((key_press_state & SPACE) == SPACE) {
 			key_press_state = key_press_state | ANYKEY;
 			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store);
