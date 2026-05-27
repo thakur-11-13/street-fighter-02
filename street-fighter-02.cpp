@@ -64,32 +64,32 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 		time_accum_2 = time_accum_2 - 10;
 
 		frame_counter = frame_counter + 1;
-		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 5);
-		if (frame_counter = 1) {
-
-		}
-		else if (frame_counter >= 2 && frame_counter <= 26) {
+		if (frame_counter >= 7 && frame_counter <= 14) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 15);
 			chunli_char.setTextureRect(IntRect(74, 2340, 74, 109));
 			damage_box.width = 47;
 			damage_box.height = 109;
 			damage_box.left = chunli_char.getPosition().x;
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
-		else if (27 <= frame_counter && frame_counter <= 28) {
+		else if (15 <= frame_counter && frame_counter <= 19) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 15);
 			chunli_char.setTextureRect(IntRect(148, 2340, 74, 109));
 			damage_box.width = 50;
 			damage_box.height = 84;
 			damage_box.left = chunli_char.getPosition().x;
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
-		else if (29 <= frame_counter && frame_counter <= 30) {
+		else if (20 <= frame_counter && frame_counter <= 26) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 15);
 			chunli_char.setTextureRect(IntRect(222, 2340, 74, 109));
 			damage_box.width = 52;
 			damage_box.height = 75;
 			damage_box.left = chunli_char.getPosition().x;
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
-		else if (31 <= frame_counter && frame_counter <= 32) {
+		else if (27 <= frame_counter && frame_counter <= 32) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 15);
 			chunli_char.setTextureRect(IntRect(296, 2340, 74, 109));
 			damage_box.width = 57;
 			damage_box.height = 65;
@@ -111,21 +111,24 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 
 		frame_counter = frame_counter + 1;
 
-		if (frame_counter >= 2 && frame_counter <= 3) {
+		if (frame_counter >= 2 && frame_counter <= 7) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 15);
 			chunli_char.setTextureRect(IntRect(222, 2340, 74, 109));
 			damage_box.width = 52;
 			damage_box.height = 75;
 			damage_box.left = chunli_char.getPosition().x;
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
-		else if (4 <= frame_counter && frame_counter <= 5) {
+		else if (8 <= frame_counter && frame_counter <=14) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 15);
 			chunli_char.setTextureRect(IntRect(148, 2340, 74, 109));
 			damage_box.width = 50;
 			damage_box.height = 84;
 			damage_box.left = chunli_char.getPosition().x;
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
-		else if (6 <= frame_counter && frame_counter <= 30) {
+		else if (15 <= frame_counter && frame_counter <= 30) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 15);
 			chunli_char.setTextureRect(IntRect(74, 2340, 74, 109));
 			damage_box.width = 47;
 			damage_box.height = 109;
@@ -133,6 +136,7 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
 		}
 		else if (31 <= frame_counter && frame_counter <= 32) {
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 15);
 			chunli_char.setTextureRect(IntRect(0, 2340, 74, 109));
 			damage_box.width = 74;
 			damage_box.height = 81;
