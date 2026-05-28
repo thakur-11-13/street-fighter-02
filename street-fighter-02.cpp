@@ -20,7 +20,6 @@ constexpr auto SPACE = 1 << 1;
 constexpr auto LEFT = 1 << 2;
 constexpr auto RIGHT = 1 << 3;
 
-
 void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen) {
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
 		chunli_bg_hen.setTextureRect(IntRect(1264, 592, 160, 160));
@@ -56,15 +55,53 @@ void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_b
 	};
 }
 
-void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& time_accum_3, int& random_bool_store) {
+
+void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& time_accum_3, int& random_bool_store, Sprite& chunli_char, int& frame_counter, FloatRect& damage_box, Sprite& char_shadow) {
+
+	if ((random_bool_store & (1 << 0)) == (1 << 0)) {
+		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 15);
+		damage_box.left = chunli_char.getPosition().x;
+		damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+	}
+	else {
+		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 15);
+		damage_box.left = chunli_char.getPosition().x;
+		damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+	}
 	while ((time_accum_2 >= 10) && ((random_bool_store & (1 << 0)) == (1 << 0))) {
 		chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top - 5), 1920, 1080));
 		chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y + 5);
 		chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y + 5);
 		chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y + 5);
+		char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y + 5);
 		time_accum_2 = time_accum_2 - 10;
+
+		frame_counter = frame_counter + 1;
+
+		if (frame_counter >= 7 && frame_counter <= 14) {
+			chunli_char.setTextureRect(IntRect(74, 2340, 74, 109));
+			damage_box.width = 47;
+			damage_box.height = 109;
+		}
+		else if (15 <= frame_counter && frame_counter <= 19) {
+			chunli_char.setTextureRect(IntRect(148, 2340, 74, 109));
+			damage_box.width = 50;
+			damage_box.height = 84;
+		}
+		else if (20 <= frame_counter && frame_counter <= 26) {
+			chunli_char.setTextureRect(IntRect(222, 2340, 74, 109));
+			damage_box.width = 52;
+			damage_box.height = 75;
+		}
+		else if (27 <= frame_counter && frame_counter <= 32) {
+			chunli_char.setTextureRect(IntRect(296, 2340, 74, 109));
+			damage_box.width = 57;
+			damage_box.height = 65;
+		}
+
 		if (chunli_bg_s.getTextureRect().top == 0) {
 			random_bool_store = random_bool_store & (~(1 << 0));
+			frame_counter = 1;
 		}
 	}
 	while ((time_accum_2 >= 10) && ((random_bool_store & (1 << 0)) != (1 << 0))) {
@@ -72,13 +109,53 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 		chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y - 5);
 		chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y - 5);
 		chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y - 5);
+		char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y - 5);
 		time_accum_2 = time_accum_2 - 10;
+
+		frame_counter = frame_counter + 1;
+
+		if (frame_counter >= 2 && frame_counter <= 7) {
+
+			chunli_char.setTextureRect(IntRect(222, 2340, 74, 109));
+			damage_box.width = 52;
+			damage_box.height = 75;
+			damage_box.left = chunli_char.getPosition().x;
+			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+		}
+		else if (8 <= frame_counter && frame_counter <= 14) {
+			chunli_char.setTextureRect(IntRect(148, 2340, 74, 109));
+			damage_box.width = 50;
+			damage_box.height = 84;
+			damage_box.left = chunli_char.getPosition().x;
+			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+		}
+		else if (15 <= frame_counter && frame_counter <= 30) {
+			chunli_char.setTextureRect(IntRect(74, 2340, 74, 109));
+			damage_box.width = 47;
+			damage_box.height = 109;
+			damage_box.left = chunli_char.getPosition().x;
+			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+		}
+		else if (31 <= frame_counter && frame_counter <= 32) {
+			chunli_char.setTextureRect(IntRect(0, 2340, 74, 109));
+			damage_box.width = 74;
+			damage_box.height = 81;
+			damage_box.left = chunli_char.getPosition().x;
+			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+		}
+
 		if (chunli_bg_s.getTextureRect().top == 160) {
-			random_bool_store = key_press_state | (1 << 1);
+			random_bool_store = random_bool_store | (1 << 1);
 		}
 	}
 	if ((random_bool_store & (1 << 1)) == (1 << 1)) {
 		key_press_state = key_press_state & (~SPACE);
+		chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
+		chunli_char.setPosition(chunli_char.getPosition().x, 527);
+		damage_box.left = chunli_char.getPosition().x;
+		damage_box.top = 527;
+		damage_box.width = 72;
+		damage_box.height = 87;
 		time_accum_3 = 0;
 	}
 }
@@ -86,14 +163,14 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 void chunli_idle_animation(Sprite& chunli_char, int& time_accum_3) {
 
 	if (time_accum_3 >= 160 && (chunli_char.getTextureRect()).left >= 256) {
-		chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));		
+		chunli_char.setTextureRect(IntRect(-64, 32, 72, 87));
 	}
 	while (time_accum_3 >= 160 && ((chunli_char.getTextureRect()).left) < 256) {
 		time_accum_3 = time_accum_3 - 160;
 		chunli_char.setTextureRect(IntRect(((chunli_char.getTextureRect()).left) + 80, 32, 80, 87));
 	}
 }
-void chunli_walk_f_animation(Sprite& chunli_char, int& time_accum_3,int &frame_counter,FloatRect &damage_box) {
+void chunli_walk_f_animation(Sprite& chunli_char, int& time_accum_3, int& frame_counter, FloatRect& damage_box) {
 
 	if (time_accum_3 >= 60 && chunli_char.getTextureRect().left >= 891) {
 		chunli_char.setTextureRect(IntRect(-81, 159, 81, 89));
@@ -160,7 +237,7 @@ void chunli_walk_f_animation(Sprite& chunli_char, int& time_accum_3,int &frame_c
 	damage_box.top = 5 * (89 - damage_box.height) + chunli_char.getPosition().y;
 }
 void chunli_walk_b_animation(Sprite& chunli_char, int& time_accum_3, int& frame_counter, FloatRect& damage_box) {
-	
+
 	if (time_accum_3 >= 60 && chunli_char.getTextureRect().left >= 803) {
 		chunli_char.setTextureRect(IntRect(-73, 288, 73, 91));
 		frame_counter = 0;
@@ -297,6 +374,14 @@ int main() {
 			random_bool_store = random_bool_store | (1 << 0);
 			random_bool_store = random_bool_store & (~(1 << 1));
 			time_accum_2 = 0;
+			time_accum_3 = 0;
+			chunli_char.setTextureRect(IntRect(0, 2340, 74, 109));
+			chunli_char.setPosition(chunli_char.getPosition().x, 427);
+			damage_box.width = 74;
+			damage_box.height = 81;
+			damage_box.left = chunli_char.getPosition().x;
+			damage_box.top = 5 * (109 - damage_box.height) + chunli_char.getPosition().y;
+			frame_counter = 1;
 		};
 		if (Keyboard::isKeyPressed((Keyboard::Right)) && (key_press_state & RIGHT) != RIGHT && (key_press_state & LEFT) != LEFT) {
 			key_press_state = key_press_state | RIGHT;
@@ -361,7 +446,7 @@ int main() {
 
 		if ((key_press_state & SPACE) == SPACE) {
 			key_press_state = key_press_state | ANYKEY;
-			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store);
+			bg_upward_animation(chunli_bg_s, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store, chunli_char, frame_counter, damage_box, char_shadow);
 		};
 		if (((key_press_state & ANYKEY) != ANYKEY)) {
 			chunli_idle_animation(chunli_char, time_accum_3);
