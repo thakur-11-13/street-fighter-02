@@ -55,6 +55,7 @@ void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_b
 	};
 }
 
+
 void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& time_accum_3, int& random_bool_store, Sprite& chunli_char, int& frame_counter, FloatRect& damage_box,Sprite &char_shadow) {
 	
 	if ((random_bool_store & (1 << 0)) == (1 << 0)) {
