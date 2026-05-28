@@ -20,6 +20,7 @@ constexpr auto SPACE = 1 << 1;
 constexpr auto LEFT = 1 << 2;
 constexpr auto RIGHT = 1 << 3;
 
+
 void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen) {
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
 		chunli_bg_hen.setTextureRect(IntRect(1264, 592, 160, 160));
