@@ -290,6 +290,7 @@ void chunli_walk_b_animation(Sprite& chunli_char, int& time_accum_3, int& frame_
 		chunli_char.setOrigin(62 / 2, 88);
 		frame_counter = 0;
 		break;
+
 	}
 }
 
