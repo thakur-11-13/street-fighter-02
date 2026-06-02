@@ -1,64 +1,17 @@
 ﻿  street-fighter-02.cpp
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(119,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(119,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(123,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(123,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(127,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(127,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(131,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(131,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(135,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(135,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(139,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(139,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(143,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(143,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(147,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(147,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(151,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(151,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(155,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(155,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(159,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(159,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(163,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(163,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(178,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(178,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(182,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(182,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(186,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(186,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(190,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(190,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(194,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(194,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(198,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(198,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(202,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(202,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(206,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(206,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(210,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(210,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(214,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(214,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(218,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(218,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(222,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(241,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(290,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(292,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(293,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(294,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(323,32): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(323,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(339,32): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(339,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(370,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(371,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(372,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(376,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(377,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(378,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(361,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(410,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(412,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(413,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(414,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(450,32): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(450,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(466,32): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(466,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(498,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(499,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(500,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(504,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(505,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(506,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   street-fighter-02.vcxproj -> D:\Damn U serious\Code\C++\G_dev\street-fighter-02\Debug\street-fighter-02.exe
