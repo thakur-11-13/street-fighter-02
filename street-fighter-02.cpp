@@ -126,7 +126,7 @@ void chunli_jump_animation(Sprite& chunli_char, int& key_press_state, int& time_
 				chunli_char.setScale(5.0f, 5.0f);
 			}
 		}
-		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 14);
+		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 18);
 	}
 	else {
 		while (time_accum_3 >= 10) {
@@ -157,7 +157,7 @@ void chunli_jump_animation(Sprite& chunli_char, int& key_press_state, int& time_
 				chunli_char.setScale(5.0f, 5.0f);
 			};
 		}
-		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 14);
+		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 18);
 	};
 	if ((random_bool_store & (1 << 1)) == (1 << 1)) {
 		chunli_char.setScale(1.0f, 1.0f);
