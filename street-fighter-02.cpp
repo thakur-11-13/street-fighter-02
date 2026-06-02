@@ -135,25 +135,25 @@ void chunli_jump_animation(Sprite& chunli_char, int& key_press_state, int& time_
 			if (33 <= frame_counter && frame_counter <= 37) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(370, 2374, 52, 75));
-				chunli_char.setOrigin(52 / 2, 75 / 2);
+				chunli_char.setOrigin(52.0 / 2, 75.0 / 2);
 				chunli_char.setScale(5.0f, 5.0f);
 			}
 			else if (38 <= frame_counter && frame_counter <= 42) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(444, 2365, 50, 84));
-				chunli_char.setOrigin(50 / 2, 84 / 2);
+				chunli_char.setOrigin(50.0 / 2, 84.0 / 2);
 				chunli_char.setScale(5.0f, 5.0f);
 			}
 			else if (43 <= frame_counter && frame_counter <= 59) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(518, 2340, 47, 109));
-				chunli_char.setOrigin(47 / 2, 109 / 2);
+				chunli_char.setOrigin(47.0 / 2, 109.0 / 2);
 				chunli_char.setScale(5.0f, 5.0f);
 			}
 			else if (60 <= frame_counter && frame_counter <= 64) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(592, 2368, 74, 81));
-				chunli_char.setOrigin(74 / 2, 81 / 2);
+				chunli_char.setOrigin(74.0 / 2, 81.0 / 2);
 				chunli_char.setScale(5.0f, 5.0f);
 			};
 		}
