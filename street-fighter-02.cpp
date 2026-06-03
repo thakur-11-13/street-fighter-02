@@ -19,6 +19,7 @@ constexpr auto ANYKEY = 1 << 0;
 constexpr auto SPACE = 1 << 1;
 constexpr auto LEFT = 1 << 2;
 constexpr auto RIGHT = 1 << 3;
+constexpr auto DOWN = 1 << 4;
 
 void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen) {
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
@@ -346,6 +347,27 @@ void chunli_walk_b_animation(Sprite& chunli_char, int& time_accum_3, int& frame_
 	}
 }
 
+void chunli_down(Sprite& chunli_char, int& time_accum_3, int& frame_counter) {
+
+	while (time_accum_3 >= 10) {
+		time_accum_3 = time_accum_3 - 10;
+		frame_counter = frame_counter + 1;
+		switch (frame_counter) {
+		case 1:
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(74, 2007, 73, 72));
+			chunli_char.setOrigin(73.0 / 2, 72);
+			chunli_char.setScale(5.0f, 5.0f);
+		case 2:
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(147, 2013, 72, 66));
+			chunli_char.setOrigin(72.0 / 2, 66);
+			chunli_char.setScale(5.0f, 5.0f);
+			frame_counter = frame_counter - 1;
+		}
+	}
+}
+
 int main() {
 
 	float dt;
@@ -392,7 +414,7 @@ int main() {
 	char_shadow.setTextureRect(IntRect(14, 135, 74, 12));
 
 	chunli_char.setOrigin(72.0 / 2, 87);
-	char_shadow.setOrigin(char_shadow.getLocalBounds().width / 2, char_shadow.getLocalBounds().height / 2);
+	char_shadow.setOrigin(74.0 / 2, 12.0 / 2);
 	chunli_char.setScale(5.0f, 5.0f);
 	char_shadow.setScale(5.0f, 5.0f);
 
@@ -434,39 +456,60 @@ int main() {
 			time_accum_2 = 0;
 			time_accum_3 = 0;
 			frame_counter = 0;
+			//char_shadow.setPosition(char_shadow.getPosition().x + 40, char_shadow.getPosition().y);
 		};
-		if (Keyboard::isKeyPressed((Keyboard::Right)) && (key_press_state & RIGHT) != RIGHT && (key_press_state & LEFT) != LEFT && (key_press_state & SPACE) != SPACE) {
+		if (Keyboard::isKeyPressed((Keyboard::Right)) && (key_press_state & ANYKEY) != ANYKEY) {
 			key_press_state = key_press_state | RIGHT;
 			key_press_state = key_press_state | ANYKEY;
 			time_accum_3 = 0;
 			frame_counter = 1;
-			char_shadow.setPosition(char_shadow.getPosition().x - 40, char_shadow.getPosition().y);
 		}
 		else if ((!(Keyboard::isKeyPressed((Keyboard::Right)))) && ((key_press_state & RIGHT) == RIGHT)) {
 			key_press_state = key_press_state & (~RIGHT);
 			key_press_state = key_press_state & (~ANYKEY);
 			time_accum_3 = 0;
+			chunli_char.setScale(1.0f, 1.0f);
 			chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
-			chunli_char.setOrigin(35.8, 86.8);
-			char_shadow.setPosition(char_shadow.getPosition().x + 40, char_shadow.getPosition().y);
+			chunli_char.setOrigin(72.0 / 2, 87);
+			chunli_char.setScale(5.0f, 5.0f);
 			dist_accum = 0;
 		};
-		if (Keyboard::isKeyPressed((Keyboard::Left)) && (key_press_state & LEFT) != LEFT && (key_press_state & RIGHT) != RIGHT && (key_press_state & SPACE) != SPACE) {
+		if (Keyboard::isKeyPressed((Keyboard::Left)) && (key_press_state & ANYKEY) != ANYKEY) {
 			key_press_state = key_press_state | LEFT;
 			key_press_state = key_press_state | ANYKEY;
 			time_accum_3 = 0;
 			frame_counter = 1;
-			char_shadow.setPosition(char_shadow.getPosition().x - 40, char_shadow.getPosition().y);
 		}
-		else if ((!(Keyboard::isKeyPressed((Keyboard::Left)))) && ((key_press_state & LEFT) == LEFT)) {
+		else if ((!(Keyboard::isKeyPressed((Keyboard::Left)))) && (key_press_state & LEFT) == LEFT) {
 			key_press_state = key_press_state & (~LEFT);
 			key_press_state = key_press_state & (~ANYKEY);
 			time_accum_3 = 0;
+			chunli_char.setScale(1.0f, 1.0f);
 			chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
-			chunli_char.setOrigin(35.8, 86.8);
-			char_shadow.setPosition(char_shadow.getPosition().x + 40, char_shadow.getPosition().y);
+			chunli_char.setOrigin(72.0 / 2, 87);
+			chunli_char.setScale(5.0f, 5.0f);
 			dist_accum = 0;
 		};
+		if (Keyboard::isKeyPressed(Keyboard::Down) && (key_press_state & SPACE) != SPACE && (key_press_state & DOWN) != DOWN) {
+			key_press_state = key_press_state | DOWN;
+			key_press_state = key_press_state | ANYKEY;
+			time_accum_3 = 0;
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(0, 1998, 74, 81));
+			chunli_char.setOrigin(74.0 / 2, 81);
+			chunli_char.setScale(5.0f, 5.0f);
+			frame_counter = 0;
+		}
+		else if (!(Keyboard::isKeyPressed(Keyboard::Down)) && (key_press_state & DOWN) == DOWN) {
+			key_press_state = key_press_state & (~DOWN);
+			key_press_state = key_press_state & (~ANYKEY);
+			time_accum_3 = 0;
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
+			chunli_char.setOrigin(72.0 / 2, 87);
+			chunli_char.setScale(5.0f, 5.0f);
+			dist_accum = 0;
+		}
 
 
 
@@ -493,17 +536,20 @@ int main() {
 		if (((key_press_state & ANYKEY) != ANYKEY)) {
 			chunli_idle_animation(chunli_char, time_accum_3);
 		};
-		if ((key_press_state & RIGHT) == RIGHT) {
+		if (((key_press_state & RIGHT) == RIGHT) && ((key_press_state & DOWN) != DOWN)) {
 			chunli_walk_f_animation(chunli_char, time_accum_3, frame_counter);
 			char_shadow.setPosition(char_shadow.getPosition().x + floor((dt * 0.95) + dist_accum), char_shadow.getPosition().y);
 			chunli_char.setPosition(chunli_char.getPosition().x + floor((dt * 0.95) + dist_accum), chunli_char.getPosition().y);
 			dist_accum = ((dt * 0.95) + dist_accum) - floor((dt * 0.95) + dist_accum);
 		}
-		else if ((key_press_state & LEFT) == LEFT) {
+		else if (((key_press_state & LEFT) == LEFT) && ((key_press_state & DOWN) != DOWN)) {
 			chunli_walk_b_animation(chunli_char, time_accum_3, frame_counter);
 			char_shadow.setPosition(char_shadow.getPosition().x - floor((dt * 0.9) + dist_accum), char_shadow.getPosition().y);
 			chunli_char.setPosition(chunli_char.getPosition().x - floor((dt * 0.9) + dist_accum), chunli_char.getPosition().y);
 			dist_accum = ((dt * 0.9) + dist_accum) - floor((dt * 0.9) + dist_accum);
+		};
+		if ((key_press_state & DOWN) == DOWN) {
+			chunli_down(chunli_char, time_accum_3, frame_counter);
 		};
 		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen);
 
