@@ -408,14 +408,35 @@ void chunli_down(Sprite& chunli_char, int& time_accum_3, int& frame_counter, int
 	}
 }
 
-void chunli_block(Sprite &chunli_char,int &time_accum_3) {
-	if (time_accum_3==2) {
-
-	}
+void chunli_block(Sprite& chunli_char, int& key_press_state, int& time_accum_3, int x = 1) {
+	if (x == 2) {
+		chunli_char.setTextureRect(IntRect(73, 3840, 83, 85));
+	}	//hit
 	else {
-		chunli_char.setScale(1.0f, 1.0f);
-		chunli_char.setTextureRect(IntRect(0,3839,73,86));
-		chunli_char.setPosition(72,72);
+		if (!(Keyboard::isKeyPressed(Keyboard::Down))) {
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(0, 3839, 73, 86));
+			chunli_char.setOrigin(73.0 / 2, 86);
+			chunli_char.setScale(4.8f, 4.8f);
+		}
+		else {
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(309, 3857, 73, 68));
+			chunli_char.setOrigin(73.0 / 2, 68.0);
+			chunli_char.setScale(4.8f, 4.8f);
+		}
+	};	//no hit
+
+	if (!(Keyboard::isKeyPressed(Keyboard::Up))) {
+		key_press_state = key_press_state & (~UP);
+		if (Keyboard::isKaeyPressed(Keyboard::Down)) {
+			key_press_state = key_press_state & (~ANYKEY);
+			time_accum_3 = 0;
+			chunli_char.setScale(1.0f, 1.0f);
+			chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
+			chunli_char.setOrigin(72.0 / 2, 87);
+			chunli_char.setScale(4.8f, 4.8f);
+		}
 	}
 }
 
@@ -440,10 +461,6 @@ int main() {
 	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg2.png");
 	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements.png");
 	(texture_elements.chunli_char_t).loadFromFile("ChunLi Sprites/ChunLi2.png");
-
-	(texture_elements.chunli_bg_t).setSmooth(false);
-	(texture_elements.chunli_bg_animation_t).setSmooth(false);
-	(texture_elements.chunli_char_t).setSmooth(false);
 
 	Sprite chunli_bg_s;
 	Sprite chunli_bg_fishermen;
@@ -492,7 +509,7 @@ int main() {
 
 		//SPACE WITHOUT DIRECTION
 
-		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state & SPACE) != SPACE) {
+		if (Keyboard::isKeyPressed(Keyboard::Space) && (key_press_state & SPACE) != SPACE && (key_press_state & UP) != UP) {
 			key_press_state = key_press_state | SPACE;
 			key_press_state = key_press_state | ANYKEY;
 			key_press_state = key_press_state & (~LEFT);
@@ -520,6 +537,12 @@ int main() {
 			time_accum_3 = 0;
 			frame_counter = 1;
 		};
+		if (Keyboard::isKeyPressed(Keyboard::Up) && (key_press_state & UP) != UP && (key_press_state & SPACE) != SPACE) {
+			key_press_state = key_press_state | UP;
+			key_press_state = key_press_state | ANYKEY;
+			key_press_state = key_press_state & (~LEFT);
+			key_press_state = key_press_state & (~RIGHT);
+		};
 		if (Keyboard::isKeyPressed(Keyboard::Down) && (key_press_state & SPACE) != SPACE && (key_press_state & DOWN) != DOWN) {
 			key_press_state = key_press_state | DOWN;
 			key_press_state = key_press_state | ANYKEY;
@@ -532,11 +555,6 @@ int main() {
 			chunli_char.setScale(4.8f, 4.8f);
 			frame_counter = 0;
 		};
-		if (Keyboard::isKeyPressed(Keyboard::Up) && (key_press_state & ANYKEY) != ANYKEY) {
-			key_press_state = key_press_state | UP;
-			key_press_state = key_press_state | ANYKEY;
-
-		}
 
 
 
@@ -573,8 +591,11 @@ int main() {
 			chunli_walk_b_animation(chunli_char, time_accum_3, frame_counter, key_press_state,char_shadow);
 			dist_accum = ((dt * 0.9) + dist_accum) - floor((dt * 0.9) + dist_accum);
 		};
-		if ((key_press_state & DOWN) == DOWN) {
+		if (((key_press_state & DOWN) == DOWN) && (key_press_state & UP) != UP) {
 			chunli_down(chunli_char, time_accum_3, frame_counter, key_press_state, char_shadow);
+		};
+		if ((key_press_state & UP) == UP) {
+			chunli_block(chunli_char, key_press_state, time_accum_3);
 		};
 		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen);
 
