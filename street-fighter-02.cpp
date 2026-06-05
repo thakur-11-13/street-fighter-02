@@ -107,25 +107,25 @@ void chunli_jump_animation(Sprite& chunli_char, int& key_press_state, int& time_
 			if (4 <= frame_counter && frame_counter <= 17) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(74, 2340, 47, 109));
-				chunli_char.setOrigin(47.0 / 2, 109.0 / 2);
+				chunli_char.setOrigin(19.0, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (18 <= frame_counter && frame_counter <= 22) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(148, 2365, 50, 84));
-				chunli_char.setOrigin(50.0 / 2, 84.0 / 2);
+				chunli_char.setOrigin(29.0 / 2, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (23 <= frame_counter && frame_counter <= 27) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(222, 2374, 52, 75));
-				chunli_char.setOrigin(52.0 / 2, 75.0 / 2);
+				chunli_char.setOrigin(15.0, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (28 <= frame_counter && frame_counter <= 32) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(296, 2384, 57, 65));
-				chunli_char.setOrigin(57.0 / 2, 65.0 / 2);
+				chunli_char.setOrigin(35.0 / 2, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 		}
@@ -138,25 +138,25 @@ void chunli_jump_animation(Sprite& chunli_char, int& key_press_state, int& time_
 			if (33 <= frame_counter && frame_counter <= 37) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(370, 2374, 52, 75));
-				chunli_char.setOrigin(52.0 / 2, 75.0 / 2);
+				chunli_char.setOrigin(15.0, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (38 <= frame_counter && frame_counter <= 42) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(444, 2365, 50, 84));
-				chunli_char.setOrigin(50.0 / 2, 84.0 / 2);
+				chunli_char.setOrigin(29.0 / 2, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (43 <= frame_counter && frame_counter <= 59) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(518, 2340, 47, 109));
-				chunli_char.setOrigin(47.0 / 2, 109.0 / 2);
+				chunli_char.setOrigin(19.0, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			}
 			else if (60 <= frame_counter && frame_counter <= 64) {
 				chunli_char.setScale(1.0f, 1.0f);
 				chunli_char.setTextureRect(IntRect(592, 2368, 74, 81));
-				chunli_char.setOrigin(74.0 / 2, 81.0 / 2);
+				chunli_char.setOrigin(74.0 / 2, 12.0);
 				chunli_char.setScale(4.8f, 4.8f);
 			};
 		}
@@ -518,9 +518,9 @@ int main() {
 			random_bool_store = random_bool_store & (~(1 << 1));
 			chunli_char.setScale(1.0f, 1.0f);
 			chunli_char.setTextureRect(IntRect(0, 2368, 74, 81));
-			chunli_char.setOrigin(74.0 / 2, 81.0 / 2);
+			chunli_char.setOrigin(74.0 / 2, 12.0);
 			chunli_char.setScale(4.8f, 4.8f);
-			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 202);
+			chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 355);
 			time_accum_2 = 0;
 			time_accum_3 = 0;
 			frame_counter = 0;
