@@ -194,73 +194,73 @@ void chunli_walk_f_animation(Sprite& chunli_char, int& time_accum_3, int& frame_
 	case 1:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(0, 164, 78, 84));
-		chunli_char.setOrigin(78.0 / 2, 84);
+		chunli_char.setOrigin(73.0 / 2, 84);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 2:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(81, 161, 71, 87));
-		chunli_char.setOrigin(71.0 / 2, 87);
+		chunli_char.setOrigin(58.0 / 2, 87);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 3:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(162, 160, 65, 88));
-		chunli_char.setOrigin(65.0 / 2, 88);
+		chunli_char.setOrigin(40.0 / 2, 88);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 4:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(243, 159, 62, 89));
-		chunli_char.setOrigin(62.0 / 2, 89);
+		chunli_char.setOrigin(31.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 5:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(324, 160, 67, 88));
-		chunli_char.setOrigin(67.0 / 2, 88);
+		chunli_char.setOrigin(35.0 / 2, 88);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 6:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(405, 161, 76, 87));
-		chunli_char.setOrigin(76.0 / 2, 87);
+		chunli_char.setOrigin(54.0 / 2, 87);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 7:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(486, 162, 81, 86));
-		chunli_char.setOrigin(81.0 / 2, 86);
+		chunli_char.setOrigin(68.0 / 2, 86);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 8:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(567, 161, 76, 87));
-		chunli_char.setOrigin(76.0 / 2, 87);
+		chunli_char.setOrigin(54.0 / 2, 87);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 9:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(648, 160, 67, 88));
-		chunli_char.setOrigin(67.0 / 2, 88);
+		chunli_char.setOrigin(35.0 / 2, 88);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 10:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(729, 159, 62, 89));
-		chunli_char.setOrigin(62.0 / 2, 89);
+		chunli_char.setOrigin(31.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 11:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(810, 160, 65, 88));
-		chunli_char.setOrigin(65.0 / 2, 88);
+		chunli_char.setOrigin(40.0 / 2, 88);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 12:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(891, 161, 71, 87));
-		chunli_char.setOrigin(71.0 / 2, 87);
+		chunli_char.setOrigin(58.0 / 2, 87);
 		chunli_char.setScale(4.8f, 4.8f);
 		frame_counter = 0;
 		break;
@@ -295,67 +295,67 @@ void chunli_walk_b_animation(Sprite& chunli_char, int& time_accum_3, int& frame_
 	case 2:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(73, 290, 63, 89));
-		chunli_char.setOrigin(63.0 / 2, 89);
+		chunli_char.setOrigin(58.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 3:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(146, 289, 60, 90));
-		chunli_char.setOrigin(60.0 / 2, 90);
+		chunli_char.setOrigin(51.0 / 2, 90);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 4:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(219, 288, 63, 91));
-		chunli_char.setOrigin(63.0 / 2, 91);
+		chunli_char.setOrigin(51.0 / 2, 91);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 5:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(292, 289, 64, 90));
-		chunli_char.setOrigin(64.0 / 2, 90);
+		chunli_char.setOrigin(52.0 / 2, 90);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 6:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(365, 290, 65, 89));
-		chunli_char.setOrigin(65.0 / 2, 89);
+		chunli_char.setOrigin(54.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 7:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(438, 291, 72, 88));
-		chunli_char.setOrigin(72.0 / 2, 88);
+		chunli_char.setOrigin(68.0 / 2, 88);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 8:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(511, 290, 65, 89));
-		chunli_char.setOrigin(65.0 / 2, 89);
+		chunli_char.setOrigin(54.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 9:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(584, 289, 64, 90));
-		chunli_char.setOrigin(64.0 / 2, 89);
+		chunli_char.setOrigin(52.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 10:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(651, 288, 63, 91));
-		chunli_char.setOrigin(63.0 / 2, 91);
+		chunli_char.setOrigin(51.0 / 2, 91);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 11:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(730, 289, 60, 90));
-		chunli_char.setOrigin(60.0 / 2, 90);
+		chunli_char.setOrigin(51.0 / 2, 90);
 		chunli_char.setScale(4.8f, 4.8f);
 		break;
 	case 12:
 		chunli_char.setScale(1.0f, 1.0f);
 		chunli_char.setTextureRect(IntRect(803, 290, 63, 89));
-		chunli_char.setOrigin(63.0 / 2, 89);
+		chunli_char.setOrigin(58.0 / 2, 89);
 		chunli_char.setScale(4.8f, 4.8f);
 		frame_counter = 0;
 		break;
