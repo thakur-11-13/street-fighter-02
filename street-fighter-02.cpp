@@ -455,33 +455,41 @@ void chunli_block(Sprite& chunli_char, int& key_press_state, int& time_accum_3, 
 }
 
 
-//_________________________________________________RYU ANIMATION_____________________________________________________________
+//			______________________________________RYU ANIMATION_____________________________________________________________
 
 
 void ryu_idle(int& frame_counter_r, int& time_accum_4, Sprite& ryu_char) {
 
-	while (time_accum_4 >= 160) {
-		time_accum_4 = time_accum_4 - 160;
+	while (time_accum_4 >= 130) {
+		time_accum_4 = time_accum_4 - 130;
 		frame_counter_r = frame_counter_r + 1;
 		switch (frame_counter_r) {
 		case 1:
+			ryu_char.setScale(1.0f, 1.0f);
 			ryu_char.setTextureRect(IntRect(0, 3, 59, 90));
 			ryu_char.setOrigin(67.0 / 2, 90);
 			ryu_char.setScale(-4.8f, 4.8f);
+			break;
 
 		case 2:
+			ryu_char.setScale(1.0f, 1.0f);
 			ryu_char.setTextureRect(IntRect(59, 4, 60, 89));
-			ryu_char.setOrigin(68.0 / 2, 90);
+			ryu_char.setOrigin(68.0 / 2, 89);
 			ryu_char.setScale(-4.8f, 4.8f);
+			break;
 		case 3:
+			ryu_char.setScale(1.0f, 1.0f);
 			ryu_char.setTextureRect(IntRect(119, 3, 59, 90));
 			ryu_char.setOrigin(67.0 / 2, 90);
 			ryu_char.setScale(-4.8f, 4.8f);
+			break;
 		case 4:
+			ryu_char.setScale(1.0f, 1.0f);
 			ryu_char.setTextureRect(IntRect(178, 0, 55, 93));
-			ryu_char.setOrigin(68.0 / 2, 90);
+			ryu_char.setOrigin(61.0 / 2, 93);
 			ryu_char.setScale(-4.8f, 4.8f);
 			frame_counter_r = 0;
+			break;
 		}
 	}
 	ryu_char.setPosition(ryu_char.getPosition().x, 961);
@@ -495,9 +503,9 @@ int main() {
 	int time_accum = 0;
 	int time_accum_2 = 0;
 	int time_accum_3 = 0;
-	int time_accum_4 = 160;
+	int time_accum_4 = 120;
 	int frame_counter_c = 1;
-	int frame_counter_r = 1;
+	int frame_counter_r = 0;
 	int key_press_state = 0;
 	int key_press_state_r = 0;
 	float dist_accum = 0;
@@ -558,6 +566,8 @@ int main() {
 
 	ryu_char.setTexture(texture_elements.ryu_char_t);
 	ryu_char.setPosition(1415, 961);
+
+	key_press_state_r = key_press_state_r & (~ANYKEY);
 
 	Clock clock1;
 
@@ -702,6 +712,10 @@ int main() {
 		if (Keyboard::isKeyPressed(Keyboard::D)) {
 			key_press_state_r = key_press_state_r | ANYKEY;
 			key_press_state_r = key_press_state_r | _D_;
+		};
+		if (Keyboard::isKeyPressed(Keyboard::A)) {
+			key_press_state_r = key_press_state_r | ANYKEY;
+			key_press_state_r = key_press_state_r | _A_;
 		};
 
 
