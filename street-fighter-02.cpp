@@ -13,7 +13,10 @@ struct {
 	Texture chunli_bg_t;
 	Texture chunli_bg_animation_t;
 	Texture chunli_char_t;
+	Texture ryu_char_t;
 }texture_elements;
+
+//CHUNLI INPUT STATES
 
 constexpr auto ANYKEY = 1 << 0;
 constexpr auto SPACE = 1 << 1;
@@ -21,6 +24,10 @@ constexpr auto LEFT = 1 << 2;
 constexpr auto RIGHT = 1 << 3;
 constexpr auto DOWN = 1 << 4;
 constexpr auto UP = 1 << 5;
+
+//RYU INPUT STATES
+
+//constexpr auto 
 
 void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen) {
 
@@ -458,26 +465,35 @@ int main() {
 	RenderWindow window1(vm, "New Game", Style::Fullscreen);
 	window1.setVerticalSyncEnabled(true);
 
+	//BACKGROUND ELEMENTS:
+
 	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg2.png");
 	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements.png");
-	(texture_elements.chunli_char_t).loadFromFile("ChunLi Sprites/ChunLi2.png");
 
 	Sprite chunli_bg_s;
 	Sprite chunli_bg_fishermen;
 	Sprite chunli_bg_mom;
 	Sprite chunli_bg_hen;
-	Sprite chunli_char;
-	Sprite char_shadow;
-	FloatRect damage_box;
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_mom.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_hen.setTexture(texture_elements.chunli_bg_animation_t);
+	chunli_bg_s.setTextureRect(IntRect(0, 160, 1920, 1080));
+
+	chunli_bg_fishermen.setPosition(800, 420);
+	chunli_bg_mom.setPosition(280, 380);
+	chunli_bg_hen.setPosition(1360, 580);
+
+	//CHUNLI ELEMENTS
+
+	(texture_elements.chunli_char_t).loadFromFile("ChunLi Sprites/ChunLi2.png");
+
+	Sprite chunli_char;
+	Sprite char_shadow;
+
 	chunli_char.setTexture(texture_elements.chunli_char_t);
 	char_shadow.setTexture(texture_elements.chunli_char_t);
-
-	chunli_bg_s.setTextureRect(IntRect(0, 160, 1920, 1080));
 	chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
 	char_shadow.setTextureRect(IntRect(14, 135, 74, 12));
 
@@ -486,19 +502,20 @@ int main() {
 	chunli_char.setScale(4.8f, 4.8f);
 	char_shadow.setScale(4.8f, 4.8f);
 
-	chunli_bg_fishermen.setPosition(800, 420);
-	chunli_bg_mom.setPosition(280, 380);
-	chunli_bg_hen.setPosition(1360, 580);
 	chunli_char.setPosition(505, 961);
 	char_shadow.setPosition(505, 961);
 
-	key_press_state = key_press_state & (~ANYKEY);
+	//RYU ELEMENTS
+
+	(texture_elements.ryu_char_t).loadFromFile("Ryu Sprites/Ryu.png");
+
+
+	Sprite ryu_char;
 
 	Clock clock1;
 	while (window1.isOpen()) {
 
 		dt = (clock1.restart()).asMilliseconds();
-
 		time_accum = time_accum + dt;
 		time_accum_2 = time_accum_2 + dt;
 		time_accum_3 = time_accum_3 + dt;
@@ -598,6 +615,104 @@ int main() {
 			chunli_block(chunli_char, key_press_state, time_accum_3);
 		};
 		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// _____________________________________________________________________ RYU CODE___________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		window1.clear();
 		window1.draw(chunli_bg_s);
