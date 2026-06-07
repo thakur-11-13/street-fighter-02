@@ -35,33 +35,33 @@ constexpr auto _S_ = 1 << 4;
 void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen) {
 
 	if ((time_accum <= 1500) || (time_accum > 1950 && time_accum <= 2950)) {
-		chunli_bg_hen.setTextureRect(IntRect(1264, 592, 160, 160));
+		chunli_bg_hen.setTextureRect(IntRect(213, 101, 32, 32));
 	}
 	else if ((1500 < time_accum && time_accum <= 1650) || (1800 < time_accum && time_accum <= 1950) || (2950 < time_accum && time_accum <= 3100) || (3250 < time_accum && time_accum <= 3400)) {
-		chunli_bg_hen.setTextureRect(IntRect(1264, 752, 160, 160));
+		chunli_bg_hen.setTextureRect(IntRect(253, 101, 32, 32));
 	}
 	else if ((time_accum > 1650 && time_accum <= 1800) || (time_accum > 3100 && time_accum <= 3250)) {
-		chunli_bg_hen.setTextureRect(IntRect(1264, 912, 160, 160));
+		chunli_bg_hen.setTextureRect(IntRect(293, 101, 32, 32));
 	};
 
 	if ((time_accum <= 1000) || (time_accum > 1900 && time_accum <= 2900)) {
-		chunli_bg_fishermen.setTextureRect(IntRect(0, 360, 480, 360));
+		chunli_bg_fishermen.setTextureRect(IntRect(0, 80, 96, 72));
 	}
 	else if ((1000 < time_accum && time_accum <= 1180) || (1360 < time_accum && time_accum <= 1540) || (1720 < time_accum && time_accum <= 1900) || (2900 < time_accum && time_accum <= 3080) || (3260 < time_accum && time_accum <= 3400)) {
-		chunli_bg_fishermen.setTextureRect(IntRect(0, 0, 480, 360));
+		chunli_bg_fishermen.setTextureRect(IntRect(0,0,96,72));
 	}
 	else if ((1180 < time_accum && time_accum <= 1360) || (1540 < time_accum && time_accum <= 1720) || (3080 < time_accum && time_accum <= 3260)) {
-		chunli_bg_fishermen.setTextureRect(IntRect(0, 720, 480, 360));
+		chunli_bg_fishermen.setTextureRect(IntRect(0, 160,96,72));
 	};
 
 	if ((time_accum <= 2000) || (3100 < time_accum && time_accum <= 3400)) {
-		chunli_bg_mom.setTextureRect(IntRect(640, 0, 440, 400));
+		chunli_bg_mom.setTextureRect(IntRect(99,0,88,80));
 	}
 	else if ((2000 < time_accum && time_accum <= 2200) || (3000 < time_accum && time_accum <= 3100)) {
-		chunli_bg_mom.setTextureRect(IntRect(640, 400, 440, 400));
+		chunli_bg_mom.setTextureRect(IntRect(99,88, 88,80));
 	}
 	else if (2200 < time_accum && time_accum <= 3000) {
-		chunli_bg_mom.setTextureRect(IntRect(640, 800, 440, 400));
+		chunli_bg_mom.setTextureRect(IntRect(99, 176, 88, 80));
 	};
 	if (time_accum > 3400) {
 		time_accum = 0;
@@ -73,11 +73,11 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 
 	if ((random_bool_store & (1 << 0)) == (1 << 0)) {
 		while (time_accum_2 >= 10) {
-			chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top - 1), 1920, 1080));
-			chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y + 5);
-			chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y + 5);
-			chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y + 5);
-			char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y + 5);
+			chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top - 2), 1920, 1080));
+			chunli_bg_fishermen.setPosition(768, chunli_bg_fishermen.getPosition().y + 9.6);
+			chunli_bg_mom.setPosition(269, chunli_bg_mom.getPosition().y + 9.6);
+			chunli_bg_hen.setPosition(1307, chunli_bg_hen.getPosition().y + 9.6);
+			char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y + 9.6);
 			time_accum_2 = time_accum_2 - 10;
 
 			if (chunli_bg_s.getTextureRect().top <= 0) {
@@ -88,11 +88,11 @@ void bg_upward_animation(Sprite& chunli_bg_s, Sprite& chunli_bg_mom, Sprite& chu
 	}
 	else if ((random_bool_store & (1 << 0)) != (1 << 0)) {
 		while (time_accum_2 >= 10) {
-			chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top + 5), 1920, 1080));
-			chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y - 5);
-			chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y - 5);
-			chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y - 5);
-			char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y - 5);
+			chunli_bg_s.setTextureRect(IntRect(0, (chunli_bg_s.getTextureRect().top + 2), 1920, 1080));
+			chunli_bg_fishermen.setPosition(800, chunli_bg_fishermen.getPosition().y - 9.6);
+			chunli_bg_mom.setPosition(280, chunli_bg_mom.getPosition().y - 9.6);
+			chunli_bg_hen.setPosition(1360, chunli_bg_hen.getPosition().y - 9.6);
+			char_shadow.setPosition(char_shadow.getPosition().x, char_shadow.getPosition().y - 9.6);
 			time_accum_2 = time_accum_2 - 10;
 
 			if (chunli_bg_s.getTextureRect().top >= 160) {
@@ -527,8 +527,8 @@ int main() {
 
 	//BACKGROUND ELEMENTS:
 
-	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/Sprite-0002.png");
-	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements.png");
+	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg3.png");
+	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements_2.png");
 
 	Sprite chunli_bg_s;
 	Sprite chunli_bg_fishermen;
@@ -539,17 +539,21 @@ int main() {
 	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_mom.setTexture(texture_elements.chunli_bg_animation_t);
 	chunli_bg_hen.setTexture(texture_elements.chunli_bg_animation_t);
-	chunli_bg_s.setTextureRect(IntRect(0, 33, 400, 225));
+	chunli_bg_s.setTextureRect(IntRect(0, 44, 400, 225));
 	chunli_bg_s.setPosition(0, 0);
 	chunli_bg_s.setScale(4.8f, 4.8f);
+	chunli_bg_fishermen.setScale(4.8f, 4.8f);
+	chunli_bg_mom.setScale(4.8f, 4.8f);
+	chunli_bg_hen.setScale(4.8f, 4.8f);
 
 	texture_elements.chunli_bg_t.setSmooth(true);
 	texture_elements.chunli_char_t.setSmooth(true);
+	texture_elements.chunli_bg_animation_t.setSmooth(true);
 	texture_elements.ryu_char_t.setSmooth(true);
 
-	chunli_bg_fishermen.setPosition(800, 420);
-	chunli_bg_mom.setPosition(280, 380);
-	chunli_bg_hen.setPosition(1360, 580);
+	chunli_bg_fishermen.setPosition(768, 452);
+	chunli_bg_mom.setPosition(269, 413);
+	chunli_bg_hen.setPosition(1307, 605);
 
 	//CHUNLI ELEMENTS
 
