@@ -55,13 +55,13 @@ void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_b
 	};
 
 	if ((time_accum <= 2000) || (3100 < time_accum && time_accum <= 3400)) {
-		chunli_bg_mom.setTextureRect(IntRect(99,0,88,80));
+		chunli_bg_mom.setTextureRect(IntRect(17, 17, 100, 90));
 	}
 	else if ((2000 < time_accum && time_accum <= 2200) || (3000 < time_accum && time_accum <= 3100)) {
-		chunli_bg_mom.setTextureRect(IntRect(99,88, 88,80));
+		chunli_bg_mom.setTextureRect(IntRect(17, 140, 100, 90));
 	}
 	else if (2200 < time_accum && time_accum <= 3000) {
-		chunli_bg_mom.setTextureRect(IntRect(99, 176, 88, 80));
+		chunli_bg_mom.setTextureRect(IntRect(17, 263, 100, 90));
 	};
 	if (time_accum > 3400) {
 		time_accum = 0;
@@ -528,7 +528,12 @@ int main() {
 	//BACKGROUND ELEMENTS:
 
 	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg3.png");
-	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/bg_elements_2.png");
+	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/Sprite-0036.png");
+
+	texture_elements.chunli_bg_t.setSmooth(true);
+	texture_elements.chunli_char_t.setSmooth(true);
+	texture_elements.chunli_bg_animation_t.setSmooth(true);
+	texture_elements.ryu_char_t.setSmooth(true);
 
 	Sprite chunli_bg_s;
 	Sprite chunli_bg_fishermen;
@@ -546,13 +551,8 @@ int main() {
 	chunli_bg_mom.setScale(4.8f, 4.8f);
 	chunli_bg_hen.setScale(4.8f, 4.8f);
 
-	texture_elements.chunli_bg_t.setSmooth(true);
-	texture_elements.chunli_char_t.setSmooth(true);
-	texture_elements.chunli_bg_animation_t.setSmooth(true);
-	texture_elements.ryu_char_t.setSmooth(true);
-
 	chunli_bg_fishermen.setPosition(768, 452);
-	chunli_bg_mom.setPosition(269, 413);
+	chunli_bg_mom.setPosition(254.1f,408);
 	chunli_bg_hen.setPosition(1307, 605);
 
 	//CHUNLI ELEMENTS
@@ -798,9 +798,9 @@ int main() {
 
 		window1.clear();
 		window1.draw(chunli_bg_s);
-		window1.draw(chunli_bg_fishermen);
+		//window1.draw(chunli_bg_fishermen);
 		window1.draw(chunli_bg_mom);
-		window1.draw(chunli_bg_hen);
+		//window1.draw(chunli_bg_hen);
 		window1.draw(char_shadow);
 		window1.draw(chunli_char);
 		window1.draw(ryu_char);
