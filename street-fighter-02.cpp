@@ -500,7 +500,6 @@ void ryu_walk_f(int& frame_counter_r,int &time_accum_4,Sprite &ryu_char) {
 	while (time_accum_4 >= 70) {
 		time_accum_4 = time_accum_4 - 70;
 		frame_counter_r = frame_counter_r + 1;
-
 	}
 }
 
@@ -527,12 +526,12 @@ int main() {
 
 	//BACKGROUND ELEMENTS:
 
-	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg3.png");
-	(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/Sprite-0036.png");
+	(texture_elements.chunli_bg_t).loadFromFile("ChunLi Sprites/final-chunli-bg4.png");
+	//(texture_elements.chunli_bg_animation_t).loadFromFile("ChunLi Sprites/Sprite-0036.png");
 
 	texture_elements.chunli_bg_t.setSmooth(true);
 	texture_elements.chunli_char_t.setSmooth(true);
-	texture_elements.chunli_bg_animation_t.setSmooth(true);
+	//otexture_elements.chunli_bg_animation_t.setSmooth(true);
 	texture_elements.ryu_char_t.setSmooth(true);
 
 	Sprite chunli_bg_s;
@@ -541,9 +540,9 @@ int main() {
 	Sprite chunli_bg_hen;
 
 	chunli_bg_s.setTexture(texture_elements.chunli_bg_t);
-	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_animation_t);
-	chunli_bg_mom.setTexture(texture_elements.chunli_bg_animation_t);
-	chunli_bg_hen.setTexture(texture_elements.chunli_bg_animation_t);
+	chunli_bg_fishermen.setTexture(texture_elements.chunli_bg_t);
+	chunli_bg_mom.setTexture(texture_elements.chunli_bg_t);
+	chunli_bg_hen.setTexture(texture_elements.chunli_bg_t);
 	chunli_bg_s.setTextureRect(IntRect(0, 44, 400, 225));
 	chunli_bg_s.setPosition(0, 0);
 	chunli_bg_s.setScale(4.8f, 4.8f);
@@ -552,7 +551,7 @@ int main() {
 	chunli_bg_hen.setScale(4.8f, 4.8f);
 
 	chunli_bg_fishermen.setPosition(768, 452);
-	chunli_bg_mom.setPosition(254.1f,408);
+	chunli_bg_mom.setPosition(53,85);
 	chunli_bg_hen.setPosition(1307, 605);
 
 	//CHUNLI ELEMENTS
