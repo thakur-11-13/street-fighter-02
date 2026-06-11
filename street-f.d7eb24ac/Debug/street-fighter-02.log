@@ -1,12 +1,17 @@
 ﻿  street-fighter-02.cpp
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(514,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(576,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(577,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(578,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(579,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(580,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(661,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(663,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(666,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(668,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(78,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(92,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(618,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(619,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(620,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(621,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(622,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(701,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(702,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(707,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(708,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(785,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(786,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(793,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(794,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   street-fighter-02.vcxproj -> D:\Damn U serious\Code\C++\G_dev\street-fighter-02\Debug\street-fighter-02.exe
