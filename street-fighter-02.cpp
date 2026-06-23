@@ -69,173 +69,103 @@ void bg_animation(int& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_b
 }
 
 
-void bg_upward_animation(Sprite& chunli_bg_display, Sprite& chunli_bg_mom, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_hen, int& key_press_state, int& time_accum_2, int& time_accum_3, int& random_bool_store, int& frame_counter_c, int& frame_counter_r, int& key_press_state_r, int& time_accum_4) {
-
-	if ((key_press_state & SPACE) == SPACE) {
-		if ((random_bool_store & (1 << 0)) == (1 << 0)) {
-			while (time_accum_2 >= 10) {
-				chunli_bg_display.setTextureRect(IntRect(0, (chunli_bg_display.getTextureRect().top - 1), 400, 225));
-				time_accum_2 = time_accum_2 - 10;
-
-				if (chunli_bg_display.getTextureRect().top <= 16) {
-					frame_counter_c = frame_counter_c + 1;
-				}
-
-				if (chunli_bg_display.getTextureRect().top <= 0) {
-					random_bool_store = random_bool_store & (~(1 << 0));
-					frame_counter_c = 0;
-
-				};
-			}
-		}
-		else if ((random_bool_store & (1 << 0)) != (1 << 0)) {
-			while (time_accum_2 >= 10) {
-				chunli_bg_display.setTextureRect(IntRect(0, (chunli_bg_display.getTextureRect().top + 1), 400, 225));
-				time_accum_2 = time_accum_2 - 10;
-
-				if (chunli_bg_display.getTextureRect().top >= 44) {
-					random_bool_store = random_bool_store | (1 << 1);
-					chunli_bg_display.setTextureRect(IntRect(0, 44, 400, 225));
-				};
-				if (chunli_bg_display.getTextureRect().top <= 16) {
-					frame_counter_c = frame_counter_c + 1;
-				}
-				else if (chunli_bg_display.getTextureRect().top >= 37) {
-					frame_counter_c = 96;
-				};
-			}
-		};
-
-
-
-		if ((random_bool_store & (1 << 1)) == (1 << 1)) {
-			key_press_state = key_press_state & (~SPACE);
-			key_press_state = key_press_state & (~ANYKEY);
-			time_accum_3 = 0;
-		}
-	}
-
-	else if ((key_press_state_r & _W_) == _W_) {
-		if ((random_bool_store & (1 << 2)) == (1 << 2)) {
-			while (time_accum_2 >= 10) {
-				chunli_bg_display.setTextureRect(IntRect(0, (chunli_bg_display.getTextureRect().top - 1), 400, 225));
-				time_accum_2 = time_accum_2 - 10;
-
-				if (chunli_bg_display.getTextureRect().top <= 16) {
-					frame_counter_r = frame_counter_r + 1;
-				}
-
-				if (chunli_bg_display.getTextureRect().top <= 0) {
-					random_bool_store = random_bool_store & (~(1 << 2));
-					frame_counter_r = 0;
-
-				};
-			}
-		}
-		else if ((random_bool_store & (1 << 2)) != (1 << 2)) {
-			while (time_accum_2 >= 10) {
-				chunli_bg_display.setTextureRect(IntRect(0, (chunli_bg_display.getTextureRect().top + 1), 400, 225));
-				time_accum_2 = time_accum_2 - 10;
-
-				if (chunli_bg_display.getTextureRect().top >= 44) {
-					random_bool_store = random_bool_store | (1 << 3);
-					chunli_bg_display.setTextureRect(IntRect(0, 44, 400, 225));
-				};
-				if (chunli_bg_display.getTextureRect().top <= 16) {
-					frame_counter_r = frame_counter_r + 1;
-				}
-				else if (chunli_bg_display.getTextureRect().top >= 37) {
-					frame_counter_r = 96;
-				};
-			}
-		};
-
-
-
-		if ((random_bool_store & (1 << 3)) == (1 << 3)) {
-			key_press_state = key_press_state & (~_W_);
-			key_press_state = key_press_state & (~ANYKEY);
-			time_accum_4 = 0;
-		}
-	}
-}
-
-
 //_________________________________CHUNLI ANIMATIONS______________________________________________________________
 
 
-void chunli_jump_animation(Sprite& chunli_char, int& time_accum_3, int& random_bool_store, int& frame_counter_c) {
+void chunli_jump_animation(Sprite& chunli_char, int& time_accum_3, int& random_bool_store, int& frame_counter_c, int& time_accum_2, int& key_press_state) {
+
+	while (time_accum_3 >= 10) {
+		time_accum_3 = time_accum_3 - 10;
+		frame_counter_c = frame_counter_c + 1;
+	}
 
 	if ((random_bool_store & (1 << 0)) == (1 << 0)) {
+		if (time_accum_2 >= 430) {
+			random_bool_store = random_bool_store & (~(1 << 0));
+			time_accum_2 = 0;
+			frame_counter_c = 0;
+		};
+
 		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 3);
 		switch (frame_counter_c) {
-		case 1:
+		case 8:
 			chunli_char.setTextureRect(IntRect(74, 2340, 47, 109));
 			chunli_char.setOrigin(19.0, 12.0);
 			break;
-		case 2:
-			chunli_char.setTextureRect(IntRect(148, 2365, 50, 84));
-			chunli_char.setOrigin(29.0 / 2, 12.0);
-			break;
-		case 3:
-			chunli_char.setTextureRect(IntRect(148, 2365, 50, 84));
-			chunli_char.setOrigin(29.0 / 2, 12.0);
-			break;
 		case 9:
+			chunli_char.setTextureRect(IntRect(74, 2340, 47, 109));
+			chunli_char.setOrigin(19.0, 12.0);
+			break;
+		case 24:
+			chunli_char.setTextureRect(IntRect(148, 2365, 50, 84));
+			chunli_char.setOrigin(29.0 / 2, 12.0);
+			break;
+		case 25:
+			chunli_char.setTextureRect(IntRect(148, 2365, 50, 84));
+			chunli_char.setOrigin(29.0 / 2, 12.0);
+			break;
+		case 32:
 			chunli_char.setTextureRect(IntRect(222, 2374, 52, 75));
 			chunli_char.setOrigin(15.0, 12.0);
 			break;
-		case 10:
+		case 33:
 			chunli_char.setTextureRect(IntRect(222, 2374, 52, 75));
 			chunli_char.setOrigin(15.0, 12.0);
 			break;
-		case 14:
+		case 42:
 			chunli_char.setTextureRect(IntRect(296, 2384, 57, 65));
 			chunli_char.setOrigin(35.0 / 2, 12.0);
 			break;
-		case 15:
+		case 43:
 			chunli_char.setTextureRect(IntRect(296, 2384, 57, 65));
 			chunli_char.setOrigin(35.0 / 2, 12.0);
 			break;
 		}
 	}
 	else {
+		if (time_accum_2 >= 430) {
+			random_bool_store = random_bool_store | (1 << 1);
+		};
+
 		chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y + 3);
 		switch (frame_counter_c) {
-		case 3:
-			chunli_char.setTextureRect(IntRect(370, 2374, 52, 75));
-			chunli_char.setOrigin(15.0, 12.0);
-			break;
 		case 4:
 			chunli_char.setTextureRect(IntRect(370, 2374, 52, 75));
 			chunli_char.setOrigin(15.0, 12.0);
 			break;
-		case 10:
+		case 5:
+			chunli_char.setTextureRect(IntRect(370, 2374, 52, 75));
+			chunli_char.setOrigin(15.0, 12.0);
+			break;
+		case 13:
 			chunli_char.setTextureRect(IntRect(444, 2365, 50, 84));
 			chunli_char.setOrigin(29.0 / 2, 12.0);
 			break;
-		case 11:
+		case 14:
 			chunli_char.setTextureRect(IntRect(444, 2365, 50, 84));
 			chunli_char.setOrigin(29.0 / 2, 12.0);
 			break;
-		case 16:
+		case 20:
 			chunli_char.setTextureRect(IntRect(518, 2340, 47, 109));
 			chunli_char.setOrigin(19.0, 12.0);
 			break;
-		case 17:
+		case 21:
 			chunli_char.setTextureRect(IntRect(518, 2340, 47, 109));
 			chunli_char.setOrigin(19.0, 12.0);
 			break;
-		case 96:
+		case 36:
 			chunli_char.setTextureRect(IntRect(592, 2368, 74, 81));
 			chunli_char.setOrigin(74.0 / 2, 12.0);
 			break;
 		}
 	};
 	if ((random_bool_store & (1 << 1)) == (1 << 1)) {
+		key_press_state = key_press_state & (~SPACE);
+		key_press_state = key_press_state & (~ANYKEY);
 		chunli_char.setTextureRect(IntRect(16, 32, 72, 87));
 		chunli_char.setOrigin(72.0 / 2, 87);
 		chunli_char.setPosition(chunli_char.getPosition().x, 248);
+		time_accum_2 = 0;
 	};
 }
 
@@ -867,8 +797,7 @@ int main() {
 		};
 
 		if ((key_press_state & SPACE) == SPACE) {
-			bg_upward_animation(chunli_bg_display, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store, frame_counter_c, frame_counter_r, key_press_state_r, time_accum_4);
-			chunli_jump_animation(chunli_char, time_accum_3, random_bool_store, frame_counter_c);
+			chunli_jump_animation(chunli_char, time_accum_3, random_bool_store, frame_counter_c, time_accum_2,key_press_state);
 		};
 
 		if (((key_press_state & RIGHT) == RIGHT) && ((key_press_state & DOWN) != DOWN)) {
@@ -987,7 +916,6 @@ int main() {
 			ryu_idle(frame_counter_r, time_accum_4, ryu_char, ryu_shadow);
 		};
 		if ((key_press_state_r & _W_) == _W_) {
-			bg_upward_animation(chunli_bg_display, chunli_bg_mom, chunli_bg_fishermen, chunli_bg_hen, key_press_state, time_accum_2, time_accum_3, random_bool_store, frame_counter_c, frame_counter_r, key_press_state_r, time_accum_4);
 			ryu_jump_animation(ryu_char, time_accum_4, key_press_state_r, frame_counter_r, random_bool_store);
 		}
 		if (((key_press_state_r & _A_) == _A_) && (key_press_state_r & _D_) != _D_) {
