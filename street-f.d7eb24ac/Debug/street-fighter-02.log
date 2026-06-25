@@ -1,11 +1,23 @@
 ﻿  street-fighter-02.cpp
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(742,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(831,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(832,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(839,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(840,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(949,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(950,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(957,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(958,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(387,34): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(387,34): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(387,34): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(387,34): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(387,34): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(388,34): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(388,34): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(388,34): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(388,34): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(388,34): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(772,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(861,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(862,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(869,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(870,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(982,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(983,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(990,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(991,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(680,6): warning C4101: 'pos_y_c': unreferenced local variable
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(679,6): warning C4101: 'pos_x_c': unreferenced local variable
   street-fighter-02.vcxproj -> D:\Damn U serious\Code\C++\G_dev\street-fighter-02\Debug\street-fighter-02.exe

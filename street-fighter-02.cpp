@@ -31,6 +31,7 @@ constexpr auto _W_ = 1 << 1;
 constexpr auto _D_ = 1 << 2;
 constexpr auto _A_ = 1 << 3;
 constexpr auto _S_ = 1 << 4;
+constexpr auto _Q_ = 1 << 5;
 
 void bg_animation(float& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen, Sprite& chunli_bg_laundry) {
 
@@ -381,7 +382,10 @@ void chunli_block(Sprite& chunli_char, int& key_press_state, float& time_accum_3
 //			______________________________________RYU ANIMATION_____________________________________________________________
 
 
-void ryu_idle(int& frame_counter_r, float& time_accum_4, Sprite& ryu_char, Sprite& ryu_shadow) {
+void ryu_idle(int& frame_counter_r, float& time_accum_4, Sprite& ryu_char, Sprite& ryu_shadow, int& pos_x_r, int& pos_y_r) {
+
+	pos_x_r = ryu_char.getPosition().x;
+	pos_y_r = ryu_char.getPosition().y;
 
 	while (time_accum_4 >= 130) {
 		time_accum_4 = time_accum_4 - 130;
@@ -631,6 +635,28 @@ void ryu_jump_animation(Sprite& ryu_char, float& time_accum_4, int& key_press_st
 	};
 }
 
+void ryu_block(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_r, float& time_accum_4, int x = 0) {
+
+
+	if (Keyboard::isKeyPressed(Keyboard::S)) {
+		ryu_char.setTextureRect(IntRect(38, 2368, 55, 61));
+		ryu_char.setOrigin(30, 9);
+		ryu_char.setPosition(ryu_char.getPosition().x, 196);
+	}
+	else {
+		ryu_char.setTextureRect(IntRect(443, 2335, 63, 92));
+		ryu_char.setOrigin(30, 9);
+		ryu_char.setPosition(ryu_char.getPosition().x, 167);
+	};
+
+	if (!(Keyboard::isKeyPressed(Keyboard::Q))) {
+		key_press_state_r = key_press_state_r & (~ANYKEY);
+		key_press_state_r = key_press_state_r & (~_Q_);
+		time_accum_4 = 0;
+		frame_counter_r = 1;
+	};
+}
+
 int main() {
 
 	int case_store = 1;
@@ -648,6 +674,10 @@ int main() {
 	int key_press_state_r = 0;
 	float dist_accum_c = 0;
 	float dist_accum_r = 0;
+	int pos_x_r;
+	int pos_y_r;
+	int pos_x_c;
+	int pos_y_c;
 
 	int random_bool_store = 0;				//first 2 digits for bg_upward_animation()
 
@@ -894,6 +924,11 @@ int main() {
 			time_accum_4 = 0;
 			frame_counter_r = 1;
 		};
+		if (Keyboard::isKeyPressed(Keyboard::Q) && ((key_press_state_r & ANYKEY) != ANYKEY)) {
+			key_press_state_r = key_press_state_r | ANYKEY;
+			key_press_state_r = key_press_state_r | _Q_;
+			ryu_char.setPosition(ryu_char.getPosition().x, 196);
+		};
 		if (Keyboard::isKeyPressed(Keyboard::D) && ((key_press_state_r & ANYKEY) != ANYKEY)) {
 			key_press_state_r = key_press_state_r | ANYKEY;
 			key_press_state_r = key_press_state_r | _D_;
@@ -937,9 +972,7 @@ int main() {
 
 
 
-		if ((key_press_state_r & ANYKEY) != ANYKEY) {
-			ryu_idle(frame_counter_r, time_accum_4, ryu_char, ryu_shadow);
-		};
+
 		if ((key_press_state_r & _W_) == _W_) {
 			ryu_jump_animation(ryu_char, time_accum_4, key_press_state_r, frame_counter_r, random_bool_store, time_accum_5);
 		};
@@ -960,8 +993,16 @@ int main() {
 			ryu_shadow.setPosition(ryu_char.getPosition().x, ryu_shadow.getPosition().y);
 		};
 
+		if ((key_press_state_r & _Q_) == _Q_) {
+			ryu_block(ryu_char, frame_counter_r, key_press_state_r, time_accum_4);
+		};
+
 		if ((key_press_state_r & _S_) == _S_) {
 			ryu_sit(ryu_char, time_accum_4, frame_counter_r, key_press_state_r);
+		};
+
+		if ((key_press_state_r & ANYKEY) != ANYKEY) {
+			ryu_idle(frame_counter_r, time_accum_4, ryu_char, ryu_shadow, pos_x_r, pos_y_r);
 		};
 
 
@@ -1009,7 +1050,7 @@ int main() {
 		bg_stage.draw(ryu_char);
 		bg_stage.display();
 
-		//bg_stage.setSmooth(true);
+		bg_stage.setSmooth(false);
 
 		chunli_bg_display.setScale(4.8f, 4.8f);
 
