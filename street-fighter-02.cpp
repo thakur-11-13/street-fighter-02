@@ -238,9 +238,9 @@ void chunli_jump_animation_R(Sprite& chunli_char, int& frame_counter_c, int& ran
 
 	if ((random_bool_store & (1 << 0)) == (1 << 0)) {
 
-		chunli_char.setPosition(pos_x_c + round(dt * 0.012 + dist_accum_c_x), chunli_char.getPosition().y - round(dt * 0.032 + dist_accum_c_y));
+		/*chunli_char.setPosition(pos_x_c + round(dt * 0.012 + dist_accum_c_x), chunli_char.getPosition().y - round(dt * 0.032 + dist_accum_c_y));
 		dist_accum_c_x = (dt * 0.012 + dist_accum_c_x) - round(dt * 0.012 + dist_accum_c_x);
-		dist_accum_c_y = (dt * 0.032 + dist_accum_c_y) - round(dt * 0.032 + dist_accum_c_y);
+		dist_accum_c_y = (dt * 0.032 + dist_accum_c_y) - round(dt * 0.032 + dist_accum_c_y);*/
 
 		switch (frame_counter_c) {
 		case 1:
@@ -980,12 +980,16 @@ int main() {
 				chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 25);
 				dist_accum_c_x = 0;
 				dist_accum_c_y = 0;
+				frame_counter_c = 1;
+				time_frame_accum_c = 10;
 			}
 			else if (Keyboard::isKeyPressed(Keyboard::Right)) {
 				key_press_state = key_press_state | SPACE_R;
-				chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 73);
+				chunli_char.setPosition(chunli_char.getPosition().x, chunli_char.getPosition().y - 45);
 				dist_accum_c_x = 0;
 				dist_accum_c_y = 0;
+				frame_counter_c = 1;
+				time_frame_accum_c = 10;
 			}
 			else {
 				key_press_state = key_press_state | SPACE_0;
@@ -1201,7 +1205,7 @@ int main() {
 		bg_stage.draw(ryu_char);
 		bg_stage.display();
 
-		bg_stage.setSmooth(true);
+		bg_stage.setSmooth(false);
 
 		chunli_bg_display.setScale(4.8f, 4.8f);
 
