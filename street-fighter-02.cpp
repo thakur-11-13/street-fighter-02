@@ -563,23 +563,24 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 		switch (frame_counter_c) {
 		case 1:
 			chunli_char.setTextureRect(IntRect(16, 428, 78, 87));
-			chunli_char.setOrigin(39, 87);
+			chunli_char.setOrigin(0, 87);
+			chunli_char.setPosition(pos_x_c - 34, chunli_char.getPosition().y);
 			break;
 		case 9:
 			chunli_char.setTextureRect(IntRect(102, 426, 101, 89));
-			chunli_char.setOrigin(83.0 / 2, 89);
+			chunli_char.setOrigin(0, 89);
 			break;
 		case 17:
 			chunli_char.setTextureRect(IntRect(211, 419, 87, 96));
-			chunli_char.setOrigin(87.0 / 2, 96);
+			chunli_char.setOrigin(0, 96);
 			break;
 		case 25:
 			chunli_char.setTextureRect(IntRect(102, 426, 101, 89));
-			chunli_char.setOrigin(83.0 / 2, 89);
+			chunli_char.setOrigin(0, 89);
 			break;
 		case 33:
 			chunli_char.setTextureRect(IntRect(16, 428, 78, 87));
-			chunli_char.setOrigin(39, 87);
+			chunli_char.setOrigin(0, 87);
 			break;
 		case 41:
 			frame_counter_c = 0;
@@ -588,6 +589,7 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 			key_press_state = key_press_state & (~PGDN);
 			key_press_state = key_press_state & (~ANYKEY);
 			random_bool_store = random_bool_store & (~(1 << 4));
+			chunli_char.setPosition(pos_x_c, chunli_char.getPosition().y);
 			break;
 		};
 	}
@@ -596,7 +598,7 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 		case 1:
 			chunli_char.setTextureRect(IntRect(541, 431, 101, 84));
 			chunli_char.setOrigin(0, 84);
-			chunli_char.setPosition(pos_x_c - 101.0 / 2, chunli_char.getPosition().y);
+			chunli_char.setPosition(pos_x_c - 37, chunli_char.getPosition().y);
 			break;
 		case 9:
 			chunli_char.setTextureRect(IntRect(650, 434, 119, 81));
