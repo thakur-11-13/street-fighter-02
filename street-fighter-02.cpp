@@ -1057,16 +1057,9 @@ void ryu_block(Sprite& ryu_char, int& key_press_state_r, float& time_frame_accum
 	}
 }
 
-void ryu_light_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_r, int& random_bool_store, float& time_frame_accum_r, int& pos_x_r, int& pos_y_r, int& x) {
-
-	x = x + 1;
+void ryu_light_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_r, int& random_bool_store, float& time_frame_accum_r, int& pos_x_r, int& pos_y_r) {
 
 	frame_counter_r = frame_counter_r + 1;
-
-	/*if (x > 10) {
-		frame_counter_r = frame_counter_r + 1;
-		x = 0;
-	}*/
 
 	if (((random_bool_store & (1 << 5)) == (1 << 5))) {
 		switch (frame_counter_r) {
@@ -1531,7 +1524,7 @@ int main() {
 			}
 
 			else if ((key_press_state_r & _E_) == _E_) {
-				ryu_light_punch(ryu_char, frame_counter_r, key_press_state_r, random_bool_store, time_frame_accum_r, pos_x_r, pos_y_r, x);
+				ryu_light_punch(ryu_char, frame_counter_r, key_press_state_r, random_bool_store, time_frame_accum_r, pos_x_r, pos_y_r);
 			};
 
 			if ((key_press_state_r & ANYKEY) != ANYKEY) {
