@@ -1,81 +1,151 @@
 ﻿  street-fighter-02.cpp
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(540,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(545,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(550,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(555,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(560,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(569,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(569,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(578,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(578,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(586,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(586,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(594,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(594,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(620,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(621,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(621,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(636,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(636,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(658,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(658,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1049,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1054,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1068,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1074,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1080,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1086,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1092,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1102,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1102,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1110,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1116,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1122,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1128,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1134,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1144,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1144,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1260,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1365,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1365,39): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1365,39): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1365,39): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1365,39): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1366,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1366,39): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1366,39): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1366,39): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1366,39): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1376,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1376,39): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1376,39): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1376,39): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1376,39): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1377,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1377,39): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1377,39): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1377,39): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1377,39): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1427,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1427,36): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1427,36): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1427,36): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1427,36): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1428,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1428,36): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1428,36): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1428,36): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1428,36): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1433,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1493,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1493,36): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1493,36): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1493,36): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1493,36): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1494,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1494,36): warning C4244:         with
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1494,36): warning C4244:         [
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1494,36): warning C4244:             T=float
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1494,36): warning C4244:         ]
-D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1561,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(544,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(549,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(554,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(559,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(564,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(573,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(573,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(582,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(582,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(590,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(590,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(598,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(598,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(606,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(606,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(614,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(614,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(626,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(626,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(627,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(627,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(643,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(643,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(665,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(665,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(680,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(680,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(717,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(717,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(720,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(720,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(735,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(735,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(740,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(740,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(745,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(745,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(750,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(750,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(755,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(755,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(760,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(760,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(766,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(766,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1157,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1162,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1176,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1182,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1188,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1194,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1200,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1210,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1210,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1211,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1219,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1225,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1231,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1237,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1243,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1254,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1254,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1268,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1290,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1305,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1323,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1441,41): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1546,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1546,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1546,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1546,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1546,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1547,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1547,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1547,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1547,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1547,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1558,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1558,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1558,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1558,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1558,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1559,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1559,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1559,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1559,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1559,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1570,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1570,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1570,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1570,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1570,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1571,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1571,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1571,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1571,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1571,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1582,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1582,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1582,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1582,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1582,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1583,39): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1583,39): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1583,39): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1583,39): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1583,39): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1639,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1639,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1639,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1639,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1639,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1640,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1640,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1640,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1640,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1640,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1645,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1705,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1705,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1705,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1705,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1705,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1706,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1706,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1706,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1706,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1706,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1717,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1717,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1717,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1717,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1717,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1718,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1718,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1718,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1718,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1718,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1729,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1729,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1729,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1729,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1729,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1730,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1730,36): warning C4244:         with
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1730,36): warning C4244:         [
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1730,36): warning C4244:             T=float
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1730,36): warning C4244:         ]
+D:\Damn U serious\Code\C++\G_dev\street-fighter-02\street-fighter-02.cpp(1809,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   street-fighter-02.vcxproj -> D:\Damn U serious\Code\C++\G_dev\street-fighter-02\Debug\street-fighter-02.exe
