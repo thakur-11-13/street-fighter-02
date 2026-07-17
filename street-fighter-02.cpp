@@ -29,10 +29,10 @@ constexpr auto SPACE_R = 1 << 7;
 constexpr auto ANIMATION_ON = 1 << 8;
 constexpr auto chunli_light_hit = 1 << 9;
 constexpr auto chunli_heavy_hit = 1 << 10;
-constexpr auto PGDN = 1 << 11;				//Light punch chunli
-constexpr auto PGUP = 1 << 12;				//light kick chunli
-constexpr auto DEL = 1 << 13;				//heavy punch chunli
-constexpr auto TILDE = 1 << 14;				//heavy kick chunli
+constexpr auto PUNCH_C_LIGHT = 1 << 11;				//Light punch chunli
+constexpr auto KICK_C_LIGHT = 1 << 12;				//light kick chunli
+constexpr auto PUNCH_C_HEAVY = 1 << 13;				//heavy punch chunli
+constexpr auto KICK_C_HEAVY = 1 << 14;				//heavy kick chunli
 
 //RYU INPUT STATES
 
@@ -45,10 +45,12 @@ constexpr auto _W_L = 1 << 6;
 constexpr auto _W_R = 1 << 7;
 constexpr auto ryu_light_hit = 1 << 9;
 constexpr auto ryu_heavy_hit = 1 << 10;
-constexpr auto _E_ = 1 << 11;			//Light Punch ryu
+constexpr auto PUNCH_R_LIGHT = 1 << 11;			//Light Punch ryu
 constexpr auto _R_ = 1 << 12;			//Light kick ryu
-constexpr auto _T_ = 1 << 13;			//heavy punch ryu
+constexpr auto PUNCH_R_HEAVY = 1 << 13;			//heavy punch ryu
 constexpr auto _Y_ = 1 << 14;			//Heavy kick ryu
+
+constexpr auto rand_func_ = 1 << 18;
 
 void bg_animation(float& time_accum, Sprite& chunli_bg_fishermen, Sprite& chunli_bg_mom, Sprite& chunli_bg_hen, Sprite& chunli_bg_laundry) {
 
@@ -532,7 +534,7 @@ void chunli_block(Sprite& chunli_char, int& key_press_state, int& frame_counter_
 	};	//no hit
 }
 
-void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& frame_counter_c, Sprite& chunli_hitbox, int& key_press_state, int& random_bool_store, int& pos_x_c, int& pos_y_c, Sprite& chunli_shadow) {
+void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& frame_counter_c, Sprite& chunli_hitbox, int& key_press_state, int& random_bool_store, int& pos_x_c, int& pos_y_c, Sprite& chunli_shadow, int& abc_1, int& abc_2, int& abc_3, int& abc_4, float& xyz_1, float& xyz_2) {
 
 	frame_counter_c = frame_counter_c + 1;
 
@@ -567,9 +569,8 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 			frame_counter_c = 0;
 			time_frame_accum_c = 5;
 			key_press_state = key_press_state & (~ANIMATION_ON);
-			key_press_state = key_press_state & (~PGDN);
+			key_press_state = key_press_state & (~PUNCH_C_LIGHT);
 			key_press_state = key_press_state & (~ANYKEY);
-			random_bool_store = random_bool_store & (~(1 << 4));
 			chunli_char.setPosition(pos_x_c, pos_y_c);
 			break;
 		};
@@ -620,9 +621,8 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 			frame_counter_c = 0;
 			time_frame_accum_c = 5;
 			key_press_state = key_press_state & (~ANIMATION_ON);
-			key_press_state = key_press_state & (~PGDN);
+			key_press_state = key_press_state & (~PUNCH_C_LIGHT);
 			key_press_state = key_press_state & (~ANYKEY);
-			random_bool_store = random_bool_store | (1 << 4);
 			chunli_char.setPosition(pos_x_c, pos_y_c);
 			chunli_shadow.setPosition(pos_x_c, pos_y_c);
 			chunli_shadow.setTextureRect(IntRect(14, 135, 74, 12));
@@ -632,41 +632,85 @@ void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& fra
 	}
 }
 
-void chunli_light_kick(Sprite& chunli_char, int& frame_counter_c, float& time_frame_accum_c, Sprite& chunli_hitbox, int& key_press_state, int& pos_x_c, int& pos_y_c) {
+void chunli_light_kick(Sprite& chunli_char, int& frame_counter_c, float& time_frame_accum_c, Sprite& chunli_hitbox, int& key_press_state, int& pos_x_c, int& pos_y_c, int& random_bool_store) {
 
 	frame_counter_c = frame_counter_c + 1;
 
-	switch (frame_counter_c) {
-	case 1:
-		chunli_char.setTextureRect(IntRect(476, 962, 66, 89));
-		chunli_char.setOrigin(18, 89);
-		chunli_char.setPosition(pos_x_c - 27, pos_y_c);
-		break;
-	case 20:
-		chunli_char.setTextureRect(IntRect(550, 958, 71, 93));
-		chunli_char.setOrigin(22, 93);
-		break;
-	case 40:
-		chunli_char.setTextureRect(IntRect(629, 956, 109, 95));
-		chunli_char.setOrigin(33, 95);
-		break;
-	case 60:
-		chunli_char.setTextureRect(IntRect(746, 958, 71, 93));
-		chunli_char.setOrigin(23, 93);
-		break;
-	case 80:
-		chunli_char.setTextureRect(IntRect(476, 962, 66, 89));
-		chunli_char.setOrigin(18, 89);
-		break;
-	case 99:
-		key_press_state = key_press_state & (~ANIMATION_ON);
-		key_press_state = key_press_state & (~PGUP);
-		key_press_state = key_press_state & (~ANYKEY);
-		chunli_char.setPosition(pos_x_c, pos_y_c);
-		time_frame_accum_c = 5;
-		frame_counter_c = 0;
-		break;
-	};
+
+	if ((random_bool_store & (1 << 6)) == (1 << 6)) {
+		switch (frame_counter_c) {
+		case 1:
+			chunli_char.setTextureRect(IntRect(476, 962, 66, 89));
+			chunli_char.setOrigin(18, 89);
+			chunli_char.setPosition(pos_x_c - 27, pos_y_c);
+			break;
+		case 21:
+			chunli_char.setTextureRect(IntRect(550, 958, 71, 93));
+			chunli_char.setOrigin(22, 93);
+			break;
+		case 42:
+			chunli_char.setTextureRect(IntRect(629, 956, 109, 95));
+			chunli_char.setOrigin(33, 95);
+			break;
+		case 63:
+			chunli_char.setTextureRect(IntRect(746, 958, 71, 93));
+			chunli_char.setOrigin(23, 93);
+			break;
+		case 84:
+			chunli_char.setTextureRect(IntRect(476, 962, 66, 89));
+			chunli_char.setOrigin(18, 89);
+			break;
+		case 104:
+			key_press_state = key_press_state & (~ANIMATION_ON);
+			key_press_state = key_press_state & (~KICK_C_LIGHT);
+			key_press_state = key_press_state & (~ANYKEY);
+			chunli_char.setPosition(pos_x_c, pos_y_c);
+			time_frame_accum_c = 5;
+			frame_counter_c = 0;
+			break;
+		};
+	}
+	else {
+		switch (frame_counter_c) {
+		case 1:
+			chunli_char.setTextureRect(IntRect(522, 1096, 96, 98));
+			chunli_char.setOrigin(60, 97);
+			chunli_char.setPosition(pos_x_c + 28, pos_y_c);
+			break;
+		case 18:
+			chunli_char.setTextureRect(IntRect(626, 1098, 86, 96));
+			chunli_char.setOrigin(53, 96);
+			break;
+		case 36:
+			chunli_char.setTextureRect(IntRect(720, 1097, 87, 97));
+			chunli_char.setOrigin(19, 97);
+			break;
+		case 54:
+			chunli_char.setTextureRect(IntRect(815, 1091, 64, 103));
+			chunli_char.setOrigin(20, 103);
+			break;
+		case 72:
+			chunli_char.setTextureRect(IntRect(720, 1097, 87, 97));
+			chunli_char.setOrigin(19, 97);
+			break;
+		case 90:
+			chunli_char.setTextureRect(IntRect(626, 1098, 86, 96));
+			chunli_char.setOrigin(53, 96);
+			break;
+		case 108:
+			chunli_char.setTextureRect(IntRect(522, 1096, 96, 98));
+			chunli_char.setOrigin(60, 97);
+			break;
+		case 125:
+			key_press_state = key_press_state & (~ANIMATION_ON);
+			key_press_state = key_press_state & (~KICK_C_LIGHT);
+			key_press_state = key_press_state & (~ANYKEY);
+			chunli_char.setPosition(pos_x_c, pos_y_c);
+			time_frame_accum_c = 5;
+			frame_counter_c = 0;
+			break;
+		};
+	}
 }
 
 void chunli_heavy_punch(Sprite& chunli_char, int& frame_counter_c, float& time_frame_accum_c, Sprite& chunli_hitbox, int& key_press_state, int& pos_x_c, int& pos_y_c, Sprite& chunli_shadow) {
@@ -712,7 +756,7 @@ void chunli_heavy_punch(Sprite& chunli_char, int& frame_counter_c, float& time_f
 		break;
 	case 89:
 		key_press_state = key_press_state & (~ANIMATION_ON);
-		key_press_state = key_press_state & (~TILDE);
+		key_press_state = key_press_state & (~KICK_C_HEAVY);
 		key_press_state = key_press_state & (~ANYKEY);
 		chunli_char.setPosition(pos_x_c, pos_y_c);
 		time_frame_accum_c = 5;
@@ -761,7 +805,7 @@ void chunli_heavy_kick(Sprite& chunli_char, int& frame_counter_c, float& time_fr
 		break;
 	case 95:
 		key_press_state = key_press_state & (~ANIMATION_ON);
-		key_press_state = key_press_state & (~TILDE);
+		key_press_state = key_press_state & (~KICK_C_HEAVY);
 		key_press_state = key_press_state & (~ANYKEY);
 		chunli_char.setPosition(pos_x_c, pos_y_c);
 		time_frame_accum_c = 5;
@@ -1204,9 +1248,8 @@ void ryu_light_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_stat
 			frame_counter_r = 0;
 			time_frame_accum_r = 7.5;
 			key_press_state_r = key_press_state_r & (~ANIMATION_ON);
-			key_press_state_r = key_press_state_r & (~_E_);
+			key_press_state_r = key_press_state_r & (~PUNCH_R_LIGHT);
 			key_press_state_r = key_press_state_r & (~ANYKEY);
-			random_bool_store = random_bool_store & (~(1 << 5));
 			ryu_char.setPosition(pos_x_r, pos_y_r);
 			ryu_shadow.setPosition(pos_x_r, ryu_shadow.getPosition().y);
 		}
@@ -1248,9 +1291,8 @@ void ryu_light_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_stat
 			frame_counter_r = 0;
 			time_frame_accum_r = 7.5;
 			key_press_state_r = key_press_state_r & (~ANIMATION_ON);
-			key_press_state_r = key_press_state_r & (~_E_);
+			key_press_state_r = key_press_state_r & (~PUNCH_R_LIGHT);
 			key_press_state_r = key_press_state_r & (~ANYKEY);
-			random_bool_store = random_bool_store | (1 << 5);
 			ryu_char.setPosition(pos_x_r, pos_y_r);
 			ryu_shadow.setPosition(300, 247);
 		}
@@ -1267,23 +1309,23 @@ void ryu_light_kick(Sprite& ryu_char, int& frame_counter_r, int& key_press_state
 		ryu_char.setOrigin(9, 94);
 		ryu_char.setPosition(pos_x_r + 21, 247);
 		break;
-	case 17:
+	case 16:
 		ryu_char.setTextureRect(IntRect(689, 267, 66, 92));
 		ryu_char.setOrigin(28, 92);
 		break;
-	case 34:
+	case 32:
 		ryu_char.setTextureRect(IntRect(777, 265, 114, 94));
 		ryu_char.setOrigin(50, 94);
 		break;
-	case 51:
+	case 48:
 		ryu_char.setTextureRect(IntRect(689, 267, 66, 92));
 		ryu_char.setOrigin(28, 92);
 		break;
-	case 68:
+	case 64:
 		ryu_char.setTextureRect(IntRect(606, 269, 60, 94));
 		ryu_char.setOrigin(9, 94);
 		break;
-	case 84:
+	case 79:
 		key_press_state_r = key_press_state_r & (~ANIMATION_ON);
 		key_press_state_r = key_press_state_r & (~_R_);
 		key_press_state_r = key_press_state_r & (~ANYKEY);
@@ -1327,6 +1369,43 @@ void ryu_heavy_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_stat
 	}
 };
 
+void ryu_heavy_kick(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_r, float& time_frame_accum_r, int& pos_x_r, int& pos_y_r, Sprite& ryu_shadow) {
+
+	frame_counter_r = frame_counter_r + 1;
+
+	switch (frame_counter_r) {
+	case 1:
+		ryu_char.setTextureRect(IntRect(16, 398, 61, 90));
+		ryu_char.setOrigin(50, 90);
+		ryu_char.setPosition(pos_x_r - 16, 247);
+		break;
+	case 12:
+		ryu_char.setTextureRect(IntRect(99, 394, 94, 94));
+		ryu_char.setOrigin(57, 94);
+		break;
+	case 24:
+		ryu_char.setTextureRect(IntRect(211, 394, 120, 94));
+		ryu_char.setOrigin(61, 94);
+		break;
+	case 36:
+		ryu_char.setTextureRect(IntRect(351, 411, 101, 76));
+		ryu_char.setOrigin(60, 77);
+		break;
+	case 48:
+		ryu_char.setTextureRect(IntRect(482, 407, 64, 81));
+		ryu_char.setOrigin(56, 81);
+		break;
+	case 59:
+		key_press_state_r = key_press_state_r & (~ANIMATION_ON);
+		key_press_state_r = key_press_state_r & (~_Y_);
+		key_press_state_r = key_press_state_r & (~ANYKEY);
+		ryu_char.setPosition(pos_x_r, ryu_char.getPosition().y);
+		time_frame_accum_r = 7.5;
+		frame_counter_r = 0;
+		break;
+	}
+};
+
 int main() {
 
 	int case_store = 1;
@@ -1337,6 +1416,13 @@ int main() {
 	float time_frame_accum_r = 7.5;
 
 	float time_accum = 0;
+
+	int abc_1 = 0;
+	int abc_2 = 0;
+	int abc_3 = 0;
+	int abc_4 = 0;
+	float xyz_1 = 0;
+	float xyz_2 = 0;
 
 	int frame_counter_c = 0;				//CHUNLI FRAME COUNTER
 	int frame_counter_r = 0;				//RYU FRAME COUNTER
@@ -1350,7 +1436,6 @@ int main() {
 	int pos_x_r;
 	int pos_y_r;
 
-	int x = 0;
 
 
 	int random_bool_store = 0;				// 0,1 for chunli_jumping 2,3 for ryu jumping 
@@ -1535,52 +1620,92 @@ int main() {
 			frame_counter_c = 0;
 		};
 
-		if (Keyboard::isKeyPressed(Keyboard::PageDown) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & PGDN) != PGDN && (key_press_state & UP) != UP) {
-			key_press_state = 0;
-			key_press_state = key_press_state | PGDN;
-			key_press_state = key_press_state | ANIMATION_ON;
-			key_press_state = key_press_state | ANYKEY;
-			frame_counter_c = 0;
-			time_frame_accum_c = 5;
-			key_press_state_last = key_press_state_last | PGDN;
-			pos_x_c = chunli_char.getPosition().x;
-			pos_y_c = chunli_char.getPosition().y;
+		if (Keyboard::isKeyPressed(Keyboard::PageDown) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & PUNCH_C_LIGHT) != PUNCH_C_LIGHT && (key_press_state & UP) != UP) {
+			if (Keyboard::isKeyPressed(Keyboard::Right)) {
+				key_press_state = 0;
+				key_press_state = key_press_state | PUNCH_C_HEAVY;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = -1;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | PUNCH_C_LIGHT;
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;	//Heavy punch towards front
+				chunli_char.setPosition(chunli_char.getPosition().x, 247);
+				chunli_char.setOrigin(72.0 / 2, 87);
+				chunli_char.setTextureRect(IntRect(16, 32, 80, 87));
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Left)) {
+				key_press_state = 0;
+				key_press_state = key_press_state | PUNCH_C_LIGHT;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = -1;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | PUNCH_C_LIGHT;
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;
+				random_bool_store = random_bool_store & (~(1 << 4));	//Light punch but phase 2
+				chunli_char.setPosition(chunli_char.getPosition().x, 247);
+				chunli_char.setOrigin(72.0 / 2, 87);
+				chunli_char.setTextureRect(IntRect(16, 32, 80, 87));
+			}
+			else {
+				key_press_state = 0;
+				key_press_state = key_press_state | PUNCH_C_LIGHT;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = 0;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | PUNCH_C_LIGHT;
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;
+				random_bool_store = random_bool_store | (1 << 4);
+			}
 		};
 
-		if (Keyboard::isKeyPressed(Keyboard::PageUp) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & PGUP) != PGUP && (key_press_state & UP) != UP) {
-			key_press_state = 0;
-			key_press_state = key_press_state | PGUP;
-			key_press_state = key_press_state | ANIMATION_ON;
-			key_press_state = key_press_state | ANYKEY;
-			frame_counter_c = 0;
-			time_frame_accum_c = 5;
-			key_press_state_last = key_press_state_last | PGUP;
-			pos_x_c = chunli_char.getPosition().x;
-			pos_y_c = chunli_char.getPosition().y;
-		};
-
-		if (Keyboard::isKeyPressed(Keyboard::Tilde) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & TILDE) != TILDE && (key_press_state & UP) != UP) {
-			key_press_state = 0;
-			key_press_state = key_press_state | TILDE;
-			key_press_state = key_press_state | ANIMATION_ON;
-			key_press_state = key_press_state | ANYKEY;
-			frame_counter_c = 0;
-			time_frame_accum_c = 5;
-			key_press_state_last = key_press_state_last | TILDE;
-			pos_x_c = chunli_char.getPosition().x;
-			pos_y_c = chunli_char.getPosition().y;
-		};
-
-		if (Keyboard::isKeyPressed(Keyboard::Delete) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & DEL) != DEL && (key_press_state & UP) != UP) {
-			key_press_state = 0;
-			key_press_state = key_press_state | DEL;
-			key_press_state = key_press_state | ANIMATION_ON;
-			key_press_state = key_press_state | ANYKEY;
-			frame_counter_c = 0;
-			time_frame_accum_c = 5;
-			key_press_state_last = key_press_state_last | DEL;
-			pos_x_c = chunli_char.getPosition().x;
-			pos_y_c = chunli_char.getPosition().y;
+		if (Keyboard::isKeyPressed(Keyboard::PageUp) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & KICK_C_LIGHT) != KICK_C_LIGHT && (key_press_state & UP) != UP) {
+			if (Keyboard::isKeyPressed(Keyboard::Right)) {
+				key_press_state = 0;
+				key_press_state = key_press_state | KICK_C_HEAVY;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = -1;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | KICK_C_HEAVY;
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;
+				chunli_char.setPosition(chunli_char.getPosition().x, 247);
+				chunli_char.setOrigin(72.0 / 2, 87);
+				chunli_char.setTextureRect(IntRect(16, 32, 80, 87));
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Left)) {
+				key_press_state = 0;
+				key_press_state = key_press_state | KICK_C_LIGHT;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = -1;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | KICK_C_LIGHT;
+				random_bool_store = random_bool_store & (~(1 << 6));
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;
+				chunli_char.setPosition(chunli_char.getPosition().x, 247);
+				chunli_char.setOrigin(72.0 / 2, 87);
+				chunli_char.setTextureRect(IntRect(16, 32, 80, 87));
+			}
+			else {
+				key_press_state = 0;
+				key_press_state = key_press_state | KICK_C_LIGHT;
+				key_press_state = key_press_state | ANIMATION_ON;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = 0;
+				time_frame_accum_c = 5;
+				key_press_state_last = key_press_state_last | KICK_C_LIGHT;
+				pos_x_c = chunli_char.getPosition().x;
+				pos_y_c = chunli_char.getPosition().y;
+				random_bool_store = random_bool_store | (1 << 6);
+			}
 		};
 
 		if (key_press_state_last) { //____to prevent abuse of button press____
@@ -1588,16 +1713,10 @@ int main() {
 				key_press_state_last = key_press_state_last & (~SPACE_0);
 			}
 			if (!(Keyboard::isKeyPressed(Keyboard::PageDown))) {
-				key_press_state_last = key_press_state_last & (~PGDN);
+				key_press_state_last = key_press_state_last & (~PUNCH_C_LIGHT);
 			}
 			if (!(Keyboard::isKeyPressed(Keyboard::PageUp))) {
-				key_press_state_last = key_press_state_last & (~PGUP);
-			}
-			if (!(Keyboard::isKeyPressed(Keyboard::Tilde))) {
-				key_press_state_last = key_press_state_last & (~TILDE);
-			}
-			if (!(Keyboard::isKeyPressed(Keyboard::Delete))) {
-				key_press_state_last = key_press_state_last & (~DEL);
+				key_press_state_last = key_press_state_last & (~KICK_C_LIGHT);
 			}
 		};
 
@@ -1694,16 +1813,42 @@ int main() {
 			time_frame_accum_r = 7.5;
 		};
 
-		if (Keyboard::isKeyPressed(Keyboard::E) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & _E_) != _E_ && (key_press_state_r & _Q_) != _Q_) {
-			key_press_state_r = 0;
-			key_press_state_r = key_press_state_r | ANYKEY;
-			key_press_state_r = key_press_state_r | ANIMATION_ON;
-			key_press_state_r = key_press_state_r | _E_;
-			key_press_state_last_r = key_press_state_last_r | _E_;
-			time_frame_accum_r = 7.5;
-			frame_counter_r = 0;
-			pos_x_r = ryu_char.getPosition().x;
-			pos_y_r = ryu_char.getPosition().y;
+		if (Keyboard::isKeyPressed(Keyboard::E) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & PUNCH_R_LIGHT) != PUNCH_R_LIGHT && (key_press_state_r & _Q_) != _Q_) {
+			if (Keyboard::isKeyPressed(Keyboard::A)) {
+				key_press_state_r = 0;
+				key_press_state_r = key_press_state_r | ANYKEY;
+				key_press_state_r = key_press_state_r | ANIMATION_ON;
+				key_press_state_r = key_press_state_r | PUNCH_R_HEAVY;
+				key_press_state_last_r = key_press_state_last_r | PUNCH_R_HEAVY;
+				time_frame_accum_r = 7.5;
+				frame_counter_r = 0;
+				pos_x_r = ryu_char.getPosition().x;
+				pos_y_r = ryu_char.getPosition().y;
+				random_bool_store = random_bool_store | (1 << 5);
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::D)) {
+				key_press_state_r = 0;
+				key_press_state_r = key_press_state_r | ANYKEY;
+				key_press_state_r = key_press_state_r | ANIMATION_ON;
+				key_press_state_r = key_press_state_r | PUNCH_R_LIGHT;
+				key_press_state_last_r = key_press_state_last_r | PUNCH_R_LIGHT;
+				time_frame_accum_r = 7.5;
+				frame_counter_r = 0;
+				pos_x_r = ryu_char.getPosition().x;
+				pos_y_r = ryu_char.getPosition().y;
+				random_bool_store = random_bool_store & (~(1 << 5));
+			}
+			else {
+				key_press_state_r = 0;
+				key_press_state_r = key_press_state_r | ANYKEY;
+				key_press_state_r = key_press_state_r | ANIMATION_ON;
+				key_press_state_r = key_press_state_r | PUNCH_R_LIGHT;
+				key_press_state_last_r = key_press_state_last_r | PUNCH_R_LIGHT;
+				time_frame_accum_r = 7.5;
+				frame_counter_r = 0;
+				pos_x_r = ryu_char.getPosition().x;
+				pos_y_r = ryu_char.getPosition().y;
+			}
 		};
 
 		if (Keyboard::isKeyPressed(Keyboard::R) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & _R_) != _R_ && (key_press_state_r & _Q_) != _Q_) {
@@ -1718,12 +1863,23 @@ int main() {
 			pos_y_r = ryu_char.getPosition().y;
 		};
 
-		if (Keyboard::isKeyPressed(Keyboard::T) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & _T_) != _T_ && (key_press_state_r & _Q_) != _Q_) {
+		if (Keyboard::isKeyPressed(Keyboard::T) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & PUNCH_R_HEAVY) != PUNCH_R_HEAVY && (key_press_state_r & _Q_) != _Q_) {
 			key_press_state_r = 0;
 			key_press_state_r = key_press_state_r | ANYKEY;
 			key_press_state_r = key_press_state_r | ANIMATION_ON;
-			key_press_state_r = key_press_state_r | _T_;
-			key_press_state_last_r = key_press_state_last_r | _T_;
+			key_press_state_r = key_press_state_r | PUNCH_R_HEAVY;
+			key_press_state_last_r = key_press_state_last_r | PUNCH_R_HEAVY;
+			time_frame_accum_r = 7.5;
+			frame_counter_r = 0;
+			pos_x_r = ryu_char.getPosition().x;
+			pos_y_r = ryu_char.getPosition().y;
+		};
+		if (Keyboard::isKeyPressed(Keyboard::Y) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & _Y_) != _Y_ && (key_press_state_r & _Q_) != _Q_) {
+			key_press_state_r = 0;
+			key_press_state_r = key_press_state_r | ANYKEY;
+			key_press_state_r = key_press_state_r | ANIMATION_ON;
+			key_press_state_r = key_press_state_r | _Y_;
+			key_press_state_last_r = key_press_state_last_r | _Y_;
 			time_frame_accum_r = 7.5;
 			frame_counter_r = 0;
 			pos_x_r = ryu_char.getPosition().x;
@@ -1735,13 +1891,16 @@ int main() {
 				key_press_state_last_r = key_press_state_last_r & (~_W_);
 			}
 			if (!(Keyboard::isKeyPressed(Keyboard::E))) {
-				key_press_state_last_r = key_press_state_last_r & (~_E_);
+				key_press_state_last_r = key_press_state_last_r & (~PUNCH_R_LIGHT);
 			}
 			if (!(Keyboard::isKeyPressed(Keyboard::R))) {
 				key_press_state_last_r = key_press_state_last_r & (~_R_);
 			}
 			if (!(Keyboard::isKeyPressed(Keyboard::T))) {
-				key_press_state_last_r = key_press_state_last_r & (~_T_);
+				key_press_state_last_r = key_press_state_last_r & (~PUNCH_R_HEAVY);
+				if (!(Keyboard::isKeyPressed(Keyboard::Y))) {
+					key_press_state_last_r = key_press_state_last_r & (~_Y_);
+				}
 			}
 		}
 
@@ -1783,10 +1942,10 @@ int main() {
 				chunli_jump_animation_R(chunli_char, frame_counter_c, random_bool_store, key_press_state, dt, pos_x_c, pos_y_c, ryu_char, time_frame_accum_c, chunli_shadow);
 				break;
 			case 2305:
-				chunli_light_punch(chunli_char, time_frame_accum_c, frame_counter_c, chunli_hitbox, key_press_state, random_bool_store, pos_x_c, pos_y_c, chunli_shadow);
+				chunli_light_punch(chunli_char, time_frame_accum_c, frame_counter_c, chunli_hitbox, key_press_state, random_bool_store, pos_x_c, pos_y_c, chunli_shadow, abc_1, abc_2, abc_3, abc_4, xyz_1, xyz_2);
 				break;
 			case 4353:
-				chunli_light_kick(chunli_char, frame_counter_c, time_frame_accum_c, chunli_hitbox, key_press_state, pos_x_c, pos_y_c);
+				chunli_light_kick(chunli_char, frame_counter_c, time_frame_accum_c, chunli_hitbox, key_press_state, pos_x_c, pos_y_c, random_bool_store);
 				break;
 			case 8449:
 				chunli_heavy_punch(chunli_char, frame_counter_c, time_frame_accum_c, chunli_hitbox, key_press_state, pos_x_c, pos_y_c, chunli_shadow);
@@ -1849,6 +2008,9 @@ int main() {
 				break;
 			case 8449:
 				ryu_heavy_punch(ryu_char, frame_counter_r, key_press_state_r, time_frame_accum_r, pos_x_r, pos_y_r, ryu_shadow);
+				break;
+			case 16641:
+				ryu_heavy_kick(ryu_char, frame_counter_r, key_press_state_r, time_frame_accum_r, pos_x_r, pos_y_r, ryu_shadow);
 				break;
 			};
 
