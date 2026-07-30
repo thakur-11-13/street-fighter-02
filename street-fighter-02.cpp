@@ -504,35 +504,30 @@ void chunli_sit(Sprite& chunli_char, int& frame_counter_c, int& key_press_state,
 	case 25:
 		chunli_char.setTextureRect(IntRect(147, 2013, 72, 66));
 		chunli_char.setOrigin(72.0 / 2, 66);
+		key_press_state = key_press_state & (~ANIMATION_ON);
 		break;
 	}
 
 	chunli_shadow.setPosition(chunli_char.getPosition().x, chunli_shadow.getPosition().y);
 
-	if (!(Keyboard::isKeyPressed(Keyboard::Down))) {
-		key_press_state = key_press_state & (~DOWN);
-		key_press_state = key_press_state & (~ANYKEY);
-		frame_counter_c = 0;
-		time_frame_accum_c = 5;
+	if (frame_counter_c >= 25) {
+		if (Keyboard::isKeyPressed(Keyboard::Up)) {
+			chunli_char.setTextureRect(IntRect(309, 3857, 73, 68));
+			chunli_char.setOrigin(73.0 / 2, 68);
+		}
+		else {
+			frame_counter_c = 24;
+			key_press_state = key_press_state & (~UP);
+		}
 	}
 }
 
 void chunli_block(Sprite& chunli_char, int& key_press_state, int& frame_counter_c, float time_frame_accum_c, int x = 1) {
 
-	if (x == 2) {
-		chunli_char.setTextureRect(IntRect(73, 3840, 83, 85));
-	}	//hit
-	else {
-		if (!(Keyboard::isKeyPressed(Keyboard::Down))) {
-			key_press_state = key_press_state & (~DOWN);
-			chunli_char.setTextureRect(IntRect(0, 3839, 73, 86));
-			chunli_char.setOrigin(73.0 / 2, 86);
-		}
-		else {
-			chunli_char.setTextureRect(IntRect(309, 3857, 73, 68));
-			chunli_char.setOrigin(73.0 / 2, 68.0);
-		}
-	};	//no hit
+	key_press_state = key_press_state & (~DOWN);
+	chunli_char.setTextureRect(IntRect(0, 3839, 73, 86));
+	chunli_char.setOrigin(73.0 / 2, 86);
+
 }
 
 void chunli_light_punch(Sprite& chunli_char, float& time_frame_accum_c, int& frame_counter_c, Sprite& chunli_hitbox, int& key_press_state, int& random_bool_store, int& pos_x_c, int& pos_y_c, Sprite& chunli_shadow) {
@@ -1006,7 +1001,7 @@ void ryu_walk_b(Sprite& ryu_char, float& time_frame_accum_r, int& key_press_stat
 	}
 };
 
-void ryu_sit(Sprite& ryu_char, float& time_frame_accum_r, int& frame_counter_r, int& key_press_state_r) {
+void ryu_sit(Sprite& ryu_char, float& time_frame_accum_r, int& frame_counter_r, int& key_press_state_r, int& pos_x_r, int& pos_y_r) {
 
 	frame_counter_r = frame_counter_r + 1;
 
@@ -1014,17 +1009,17 @@ void ryu_sit(Sprite& ryu_char, float& time_frame_accum_r, int& frame_counter_r, 
 	case 1:
 		ryu_char.setTextureRect(IntRect(26, 1213, 53, 83));
 		ryu_char.setOrigin(34, 10);
-		ryu_char.setPosition(ryu_char.getPosition().x, 174);
+		ryu_char.setPosition(pos_x_r, 174);
 		break;
 	case 12:
 		ryu_char.setTextureRect(IntRect(115, 1227, 57, 69));
 		ryu_char.setOrigin(32, 10);
-		ryu_char.setPosition(ryu_char.getPosition().x, 188);
+		ryu_char.setPosition(pos_x_r, 188);
 		break;
 	case 23:
 		ryu_char.setTextureRect(IntRect(197, 1235, 61, 61));
 		ryu_char.setOrigin(33, 10);
-		ryu_char.setPosition(ryu_char.getPosition().x, 196);
+		ryu_char.setPosition(pos_x_r, 196);
 		break;
 	}
 
@@ -1519,15 +1514,19 @@ void ryu_sit_punch(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_
 		break;
 	case 15:
 		ryu_char.setTextureRect(IntRect(359, 1344, 66, 61));
+		ryu_char.setPosition(pos_x_r + 1, pos_y_r + 50);
 		break;
 	case 30:
 		ryu_char.setTextureRect(IntRect(450, 1343, 92, 62));
+		ryu_char.setPosition(pos_x_r + 1, pos_y_r + 50);
 		break;
 	case 45:
 		ryu_char.setTextureRect(IntRect(359, 1344, 66, 61));
+		ryu_char.setPosition(pos_x_r + 1, pos_y_r + 50);
 		break;
 	case 60:
 		ryu_char.setTextureRect(IntRect(265, 1344, 64, 61));
+		ryu_char.setPosition(pos_x_r + 1, pos_y_r + 50);
 		break;
 	case 74:
 		key_press_state_r = key_press_state_r & (~ANIMATION_ON);
@@ -1768,29 +1767,41 @@ int main() {
 			key_press_state = key_press_state | ANYKEY;
 			key_press_state = key_press_state & (~LEFT);
 			key_press_state = key_press_state & (~RIGHT);
+			pos_x_c = chunli_char.getPosition().x;
+			pos_y_c = chunli_char.getPosition().y;
+			time_frame_accum_c = 5;
+			frame_counter_c = 26;
+		}
+
+		else if ((key_press_state & UP) == UP && !(Keyboard::isKeyPressed(Keyboard::Up))) {
+			key_press_state = key_press_state & (~UP);
+			key_press_state = key_press_state & (~ANYKEY);
+			frame_counter_c = 0;
+			if ((key_press_state & DOWN) == DOWN) {
+				key_press_state = key_press_state | DOWN;
+				key_press_state = key_press_state | ANYKEY;
+				frame_counter_c = 24;
+			}
+			time_frame_accum_c = 5;
+		};
+
+		if (Keyboard::isKeyPressed(Keyboard::Down) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state & DOWN) != DOWN && (key_press_state & UP) != UP) {
+			key_press_state = key_press_state | DOWN;
+			key_press_state = key_press_state | ANYKEY;
+			key_press_state = key_press_state | ANIMATION_ON;
+			key_press_state = key_press_state & (~LEFT);
+			key_press_state = key_press_state & (~RIGHT);
 			frame_counter_c = 0;
 			time_frame_accum_c = 5;
 		}
-		else if ((key_press_state & UP) == UP && !Keyboard::isKeyPressed(Keyboard::Up)) {
-			key_press_state = key_press_state & (~UP);
-			frame_counter_c = 45;
-			time_frame_accum_c = 5;
-			if (!(Keyboard::isKeyPressed(Keyboard::Down))) {
-				time_frame_accum_c = 5;
-				frame_counter_c = 0;
-				key_press_state = key_press_state & (~DOWN);
-				key_press_state = key_press_state & (~ANYKEY);
-			}
-		};
 
-		if (Keyboard::isKeyPressed(Keyboard::Down) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state & DOWN) != DOWN) {
-			key_press_state = key_press_state | DOWN;
-			key_press_state = key_press_state | ANYKEY;
-			key_press_state = key_press_state & (~LEFT);
-			key_press_state = key_press_state & (~RIGHT);
+		else if ((!Keyboard::isKeyPressed(Keyboard::Down)) && (key_press_state & DOWN) == DOWN && (key_press_state & ANIMATION_ON) != ANIMATION_ON) {
+			key_press_state = key_press_state & (~DOWN);
+			key_press_state = key_press_state & (~UP);
+			key_press_state = key_press_state & (~ANYKEY);
 			time_frame_accum_c = 5;
 			frame_counter_c = 0;
-		};
+		}
 
 		if (Keyboard::isKeyPressed(Keyboard::PageDown) && (key_press_state & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last & PUNCH_C_LIGHT) != PUNCH_C_LIGHT && (key_press_state & UP) != UP) {
 			if (Keyboard::isKeyPressed(Keyboard::Right)) {
@@ -1825,7 +1836,7 @@ int main() {
 			else if (Keyboard::isKeyPressed(Keyboard::Down)) {
 				key_press_state = 0;
 				key_press_state = key_press_state | ANYKEY;
-				key_press_state = key_press_state | (DOWN);
+				key_press_state = key_press_state | DOWN;
 				key_press_state = key_press_state | ANIMATION_ON;
 				key_press_state = key_press_state | PUNCH_C_LIGHT;
 				key_press_state_last = key_press_state_last | PUNCH_C_LIGHT;
@@ -1955,7 +1966,7 @@ int main() {
 			pos_y_r = ryu_char.getPosition().y;
 		}
 
-		if ((key_press_state_r & _Q_) == _Q_ && !Keyboard::isKeyPressed(Keyboard::Q)) {
+		if ((key_press_state_r & _Q_) == _Q_ && !(Keyboard::isKeyPressed(Keyboard::Q))) {
 			key_press_state_r = key_press_state_r & (~_Q_);
 			ryu_char.setPosition(pos_x_r, ryu_char.getPosition().y);
 			frame_counter_r = 22;
@@ -2007,6 +2018,8 @@ int main() {
 			key_press_state_r = key_press_state_r & (~_D_);
 			frame_counter_r = 0;
 			time_frame_accum_r = 7.5;
+			pos_x_r = ryu_char.getPosition().x;
+			pos_y_r = ryu_char.getPosition().y;
 		};
 
 		if (Keyboard::isKeyPressed(Keyboard::E) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_last_r & PUNCH_R_LIGHT) != PUNCH_R_LIGHT && (key_press_state_r & _Q_) != _Q_) {
@@ -2166,10 +2179,13 @@ int main() {
 				chunli_block(chunli_char, key_press_state, frame_counter_c, time_frame_accum_c);
 				break;
 			case 49:
-				chunli_block(chunli_char, key_press_state, frame_counter_c, time_frame_accum_c);
+				chunli_sit(chunli_char, frame_counter_c, key_press_state, chunli_shadow, time_frame_accum_c);
 				break;
 			case 259:
 				chunli_jump_animation(chunli_char, random_bool_store, frame_counter_c, key_press_state, time_frame_accum_c);
+				break;
+			case 273:
+				chunli_sit(chunli_char, frame_counter_c, key_press_state, chunli_shadow, time_frame_accum_c);
 				break;
 			case 321:
 				chunli_jump_animation_L(chunli_char, frame_counter_c, random_bool_store, key_press_state, dt, chunli_shadow, time_frame_accum_c);
@@ -2225,7 +2241,7 @@ int main() {
 				ryu_shadow.setPosition(ryu_char.getPosition().x + 20, ryu_shadow.getPosition().y);
 				break;
 			case 17:
-				ryu_sit(ryu_char, time_frame_accum_r, frame_counter_r, key_press_state_r);
+				ryu_sit(ryu_char, time_frame_accum_r, frame_counter_r, key_press_state_r, pos_x_r, pos_y_r);
 				break;
 			case 33:
 				ryu_block(ryu_char, key_press_state_r, time_frame_accum_r, frame_counter_r, pos_x_r);
