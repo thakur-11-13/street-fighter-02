@@ -901,7 +901,7 @@ void chunli_sit_kick(Sprite& chunli_char, int& frame_counter_c, float& time_fram
 	};
 }
 
-void chunli_hurt(Sprite& chunli_char, Sprite& ryu_char, int& frame_counter_c, float& time_frame_accum_c, Sprite& chunli_shadow, int& pos_x_c, int& pos_y_c, int& key_press_state, Sprite& hit, FloatRect& ryu_damage_box, Sprite& ryu_shadow) {
+void chunli_hurt(Sprite& chunli_char, Sprite& ryu_char, int& frame_counter_c, float& time_frame_accum_c, Sprite& chunli_shadow, int& pos_x_c, int& pos_y_c, int& key_press_state, Sprite& hit, FloatRect& ryu_damage_box, Sprite& ryu_shadow, float& time_frame_accum_random) {
 
 	frame_counter_c = frame_counter_c + 1;
 
@@ -942,9 +942,6 @@ void chunli_hurt(Sprite& chunli_char, Sprite& ryu_char, int& frame_counter_c, fl
 		key_press_state = key_press_state & (~HURT_C);
 		break;
 	}
-
-	pos_x_c = pos_x_c - 1;
-	chunli_char.setPosition(pos_x_c, pos_y_c);
 
 	if (chunli_char.getGlobalBounds().left < 0) {
 		chunli_char.setPosition(chunli_char.getOrigin().x, chunli_char.getPosition().y);
@@ -993,9 +990,7 @@ void ryu_idle(int& frame_counter_r, float& time_accum_4, Sprite& ryu_char, Sprit
 
 };
 
-void ryu_walk_f(int& frame_counter_r, float& time_frame_accum_r, Sprite& ryu_char, int& key_press_state_r, int& pos_x_r, Sprite& chunli_char, Sprite& ryu_shadow) {
-
-	pos_x_r = pos_x_r - 1;
+void ryu_walk_f(int& frame_counter_r, float& time_frame_accum_r, Sprite& ryu_char, int& key_press_state_r, int& pos_x_r, Sprite& chunli_char, Sprite& ryu_shadow, FloatRect& ryu_hitbox, FloatRect& chunli_hitbox) {
 
 	frame_counter_r = frame_counter_r + 1;
 
@@ -1038,12 +1033,10 @@ void ryu_walk_f(int& frame_counter_r, float& time_frame_accum_r, Sprite& ryu_cha
 		break;
 	}
 
-	if (ryu_char.getGlobalBounds().left < chunli_char.getGlobalBounds().left + chunli_char.getGlobalBounds().width) {
-		pos_x_r = chunli_char.getGlobalBounds().left + chunli_char.getGlobalBounds().width + ryu_char.getOrigin().x;
-		ryu_shadow.setPosition(ryu_char.getPosition().x, ryu_shadow.getPosition().y);
+	if (!(ryu_hitbox.intersects(chunli_hitbox))) {
+		pos_x_r = pos_x_r - 1;
+		ryu_char.setPosition(ryu_char.getPosition().x - 1, ryu_char.getPosition().y);
 	}
-
-	ryu_char.setPosition(pos_x_r, ryu_char.getPosition().y);
 
 };
 
@@ -1118,11 +1111,6 @@ void ryu_sit(Sprite& ryu_char, float& time_frame_accum_r, int& frame_counter_r, 
 			frame_counter_r = 22;
 			key_press_state_r = key_press_state_r & (~_Q_);
 		}
-	}
-
-	if (ryu_char.getGlobalBounds().left < chunli_char.getGlobalBounds().left + chunli_char.getGlobalBounds().width) {
-		ryu_char.setPosition(chunli_char.getGlobalBounds().left + chunli_char.getGlobalBounds().width + ryu_char.getOrigin().x, ryu_char.getPosition().y);
-		ryu_shadow.setPosition(ryu_char.getPosition().x, ryu_shadow.getPosition().y);
 	}
 
 };
@@ -1714,6 +1702,7 @@ void ryu_sit_kick(Sprite& ryu_char, int& frame_counter_r, int& key_press_state_r
 void ryu_hurt(Sprite& ryu_char, Sprite& chunli_char, float& time_frame_accum_r, int& frame_counter_r, Sprite& ryu_shadow, int& key_press_state_r, int& pos_x_r, int& pos_y_r, int& x) {
 
 	x = x + 1;
+
 	frame_counter_r = frame_counter_r + 1;
 
 	/*frame_counter_r = 1;*/
@@ -1729,18 +1718,19 @@ void ryu_hurt(Sprite& ryu_char, Sprite& chunli_char, float& time_frame_accum_r, 
 		ryu_char.setOrigin(56.0 / 2, 89);
 		ryu_char.setPosition(pos_x_r + 8, 247);
 		break;
-	case 16:
+	case 13:
 		ryu_char.setTextureRect(IntRect(207, 2091, 68, 89));
 		ryu_char.setOrigin(45, 89);
 		break;
-	case 31:
+	case 25:
 		ryu_char.setTextureRect(IntRect(297, 2091, 72, 88));
 		ryu_char.setOrigin(99.0 / 2, 88);
 		break;
-	case 59:
+	case 49:
 		ryu_char.setTextureRect(IntRect(398, 2094, 58, 85));
 		ryu_char.setOrigin(34, 85);
-	case 74:
+		break;
+	case 61:
 		frame_counter_r = 0;
 		key_press_state_r = 7.5;
 		ryu_char.setPosition(pos_x_r, pos_y_r);
@@ -1750,7 +1740,7 @@ void ryu_hurt(Sprite& ryu_char, Sprite& chunli_char, float& time_frame_accum_r, 
 		break;
 	}
 
-	pos_x_r = pos_x_r + 1;
+	pos_x_r = pos_x_r + 2;
 	ryu_char.setPosition(pos_x_r, ryu_char.getPosition().y);
 	ryu_shadow.setPosition(pos_x_r, ryu_shadow.getPosition().y);
 
@@ -1768,6 +1758,7 @@ int main() {
 	int x = 0;
 
 	float time_accum = 0;
+	float time_frame_accum_random = 0;
 
 	int frame_counter_c = 0;				//CHUNLI FRAME COUNTER
 	int frame_counter_r = 0;				//RYU FRAME COUNTER
@@ -1884,6 +1875,7 @@ int main() {
 		time_accum = time_accum + dt;
 		time_frame_accum_c = time_frame_accum_c + dt;
 		time_frame_accum_r = time_frame_accum_r + dt;
+		time_frame_accum_random = time_frame_accum_random + dt;
 		chunli_bg_display.setScale(1.0f, 1.0f);
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
@@ -2179,7 +2171,7 @@ int main() {
 			time_frame_accum_r = 7.5;
 		};
 
-		if (Keyboard::isKeyPressed(Keyboard::S) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && (key_press_state_r & _S_) != _S_ && (key_press_state_r & _Q_) != _Q_) {
+		if (Keyboard::isKeyPressed(Keyboard::S) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON && ((key_press_state_r & ANYKEY) != ANYKEY)) {
 			key_press_state_r = key_press_state_r | _S_;
 			key_press_state_r = key_press_state_r | ANYKEY;
 			key_press_state_r = key_press_state_r | ANIMATION_ON;
@@ -2215,7 +2207,7 @@ int main() {
 			frame_counter_r = 0;
 			time_frame_accum_r = 7.5;
 			pos_x_r = ryu_char.getPosition().x;
-			ryu_char.setPosition(ryu_char.getPosition().x - 14, 168);
+			ryu_char.setPosition(ryu_char.getPosition().x - 14, ryu_char.getPosition().y);
 		}
 
 		else if ((key_press_state_r & _A_) == _A_ && !Keyboard::isKeyPressed(Keyboard::A)) {
@@ -2347,12 +2339,6 @@ int main() {
 			if (!(Keyboard::isKeyPressed(Keyboard::R))) {
 				key_press_state_last_r = key_press_state_last_r & (~KICK_R_LIGHT);
 			}
-			if (!(Keyboard::isKeyPressed(Keyboard::T))) {
-				key_press_state_last_r = key_press_state_last_r & (~PUNCH_R_HEAVY);
-			}
-			if (!(Keyboard::isKeyPressed(Keyboard::Y))) {
-				key_press_state_last_r = key_press_state_last_r & (~KICK_R_HEAVY);
-			}
 		}
 
 		if (ryu_hitbox.intersects(chunli_damage_box) && (key_press_state_r & HURT_R) != HURT_R) {
@@ -2423,7 +2409,7 @@ int main() {
 				chunli_heavy_kick(chunli_char, frame_counter_c, time_frame_accum_c, key_press_state, pos_x_c, pos_y_c);
 				break;
 			case 33025:
-				chunli_hurt(chunli_char, ryu_char, frame_counter_c, time_frame_accum_c, chunli_shadow, pos_x_c, pos_y_c, key_press_state, hit, ryu_damage_box, ryu_shadow);
+				chunli_hurt(chunli_char, ryu_char, frame_counter_c, time_frame_accum_c, chunli_shadow, pos_x_c, pos_y_c, key_press_state, hit, ryu_damage_box, ryu_shadow, time_frame_accum_random);
 				break;
 			};
 
@@ -2452,7 +2438,7 @@ int main() {
 				ryu_shadow.setPosition(ryu_char.getPosition().x, ryu_shadow.getPosition().y);
 				break;
 			case 9:
-				ryu_walk_f(frame_counter_r, time_frame_accum_r, ryu_char, key_press_state_r, pos_x_r, chunli_char, ryu_shadow);
+				ryu_walk_f(frame_counter_r, time_frame_accum_r, ryu_char, key_press_state_r, pos_x_r, chunli_char, ryu_shadow, ryu_hitbox, chunli_hitbox);
 				ryu_shadow.setPosition(ryu_char.getPosition().x + 20, ryu_shadow.getPosition().y);
 				break;
 			case 17:
@@ -2510,6 +2496,11 @@ int main() {
 		ryu_hitbox.width = ryu_char.getTextureRect().width;
 		ryu_hitbox.height = ryu_char.getTextureRect().height;
 
+		if (key_press_state == 33025 && time_frame_accum_random > 7.5) {
+			time_frame_accum_random = time_frame_accum_random - 7.5;
+			pos_x_c = pos_x_c - 2;
+			chunli_char.setPosition(pos_x_c, pos_y_c);
+		}
 
 		bg_animation(time_accum, chunli_bg_fishermen, chunli_bg_mom, chunli_bg_hen, chunli_bg_laundry);
 
