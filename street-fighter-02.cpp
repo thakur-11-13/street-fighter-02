@@ -1029,7 +1029,7 @@ void ryu_walk_f(int& frame_counter_r, float& time_frame_accum_r, Sprite& ryu_cha
 		break;
 	}
 
-	if (!(ryu_hitbox.intersects(chunli_hitbox))) {
+	if (!(ryu_char.getGlobalBounds().left < (chunli_char.getGlobalBounds().left + chunli_char.getGlobalBounds().width))) {
 		pos_x_r = pos_x_r - 1;
 		ryu_char.setPosition(ryu_char.getPosition().x - 1, ryu_char.getPosition().y);
 	}
