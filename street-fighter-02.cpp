@@ -777,7 +777,7 @@ void chunli_heavy_punch(Sprite& chunli_char, int& frame_counter_c, float& time_f
 		break;
 	case 89:
 		key_press_state = key_press_state & (~ANIMATION_ON);
-		key_press_state = key_press_state & (~KICK_C_HEAVY);
+		key_press_state = key_press_state & (~PUNCH_C_HEAVY);
 		key_press_state = key_press_state & (~ANYKEY);
 		chunli_char.setPosition(pos_x_c, pos_y_c);
 		time_frame_accum_c = 5;
@@ -869,9 +869,8 @@ void chunli_sit_punch(Sprite& chunli_char, int& frame_counter_c, float& time_fra
 	case 79:
 		key_press_state = key_press_state & (~ANIMATION_ON);
 		key_press_state = key_press_state & (~PUNCH_C_LIGHT);
-		key_press_state = key_press_state & (~ANYKEY);
 		time_frame_accum_c = 5;
-		frame_counter_c = 22;
+		frame_counter_c = 24;
 		chunli_char.setTextureRect(IntRect(147, 2013, 72, 66));
 		chunli_char.setOrigin(72.0 / 2, 66);
 		chunli_char.setPosition(pos_x_c, 247);
@@ -1437,7 +1436,7 @@ void ryu_block(Sprite& ryu_char, int& key_press_state_r, float& time_frame_accum
 	key_press_state_r = key_press_state_r & (~_S_);
 	ryu_char.setTextureRect(IntRect(443, 2335, 63, 92));
 	ryu_char.setOrigin(30, 9);
-	ryu_char.setPosition(pos_x_r + 7, 164);
+	ryu_char.setPosition(pos_x_r, 164);
 
 };
 
@@ -2073,7 +2072,7 @@ int main() {
 			time_frame_accum_c = 5;
 		};
 
-		if ((!Keyboard::isKeyPressed(Keyboard::Down)) && (key_press_state & DOWN) == DOWN) {
+		if ((!Keyboard::isKeyPressed(Keyboard::Down)) && (key_press_state & DOWN) == DOWN && (key_press_state & ANIMATION_ON) != ANIMATION_ON) {
 			key_press_state = key_press_state & (~DOWN);
 			key_press_state = key_press_state & (~UP);
 			key_press_state = key_press_state & (~ANYKEY);
@@ -2640,7 +2639,7 @@ int main() {
 
 		bg_stage.setSmooth(false);
 
-		chunli_bg_display.setScale(3.0f, 3.0f);
+		chunli_bg_display.setScale(4.8f, 4.8f);
 
 		window1.clear();
 		window1.draw(chunli_bg_display);
