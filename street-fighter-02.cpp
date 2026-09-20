@@ -154,6 +154,8 @@ void chunli_jump_animation(Sprite& chunli_char, int& random_bool_store, int& fra
 		key_press_state = key_press_state & (~SPACE_0);
 		key_press_state = key_press_state & (~ANYKEY);
 		key_press_state = key_press_state & (~ANIMATION_ON);
+		chunli_char.setOrigin(72.0 / 2, 87);
+		chunli_char.setPosition(chunli_char.getPosition().x, 247);
 		frame_counter_c = 0;
 		time_frame_accum_c = 5;
 	};
@@ -239,6 +241,8 @@ void chunli_jump_animation_L(Sprite& chunli_char, int& frame_counter_c, int& ran
 		key_press_state = key_press_state & (~ANYKEY);
 		key_press_state = key_press_state & (~SPACE_L);
 		key_press_state = key_press_state & (~ANIMATION_ON);
+		chunli_char.setOrigin(72.0 / 2, 87);
+		chunli_char.setPosition(chunli_char.getPosition().x, 247);
 		frame_counter_c = 0;
 		time_frame_accum_c = 5;
 	}
@@ -326,6 +330,8 @@ void chunli_jump_animation_R(Sprite& chunli_char, int& frame_counter_c, int& ran
 		key_press_state = key_press_state & (~ANYKEY);
 		key_press_state = key_press_state & (~SPACE_R);
 		key_press_state = key_press_state & (~ANIMATION_ON);
+		chunli_char.setOrigin(72.0 / 2, 87);
+		chunli_char.setPosition(chunli_char.getPosition().x, 247);
 		frame_counter_c = 0;
 		time_frame_accum_c = 5;
 	}
@@ -1184,6 +1190,7 @@ void ryu_sit(Sprite& ryu_char, float& time_frame_accum_r, int& frame_counter_r, 
 		ryu_char.setTextureRect(IntRect(197, 1235, 61, 61));
 		ryu_char.setOrigin(33, 10);
 		ryu_char.setPosition(pos_x_r, 196);
+		key_press_state_r = key_press_state_r & (~ANIMATION_ON);
 		break;
 	}
 
@@ -2012,7 +2019,8 @@ int main() {
 			key_press_state = 0;
 			key_press_state = key_press_state | ANIMATION_ON;
 			key_press_state = key_press_state | ANYKEY;
-			key_press_state_last = 1;
+			key_press_state_last = key_press_state_last | SPACE_0;
+			chunli_char.setPosition(chunli_char.getPosition().x, 247);
 			random_bool_store = random_bool_store | (1 << 0);
 			random_bool_store = random_bool_store & (~(1 << 1));
 			frame_counter_c = 0;
@@ -2290,6 +2298,7 @@ int main() {
 		if (Keyboard::isKeyPressed(Keyboard::S) && ((key_press_state_r & ANYKEY) != ANYKEY) && (key_press_state_r & ANIMATION_ON) != ANIMATION_ON) {
 			key_press_state_r = key_press_state_r | _S_;
 			key_press_state_r = key_press_state_r | ANYKEY;
+			key_press_state_r = key_press_state_r | ANIMATION_ON;
 			key_press_state_r = key_press_state_r & (~_A_);
 			key_press_state_r = key_press_state_r & (~_D_);
 			frame_counter_r = 0;
