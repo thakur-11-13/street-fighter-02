@@ -1,13 +1,14 @@
-Street Fighter II Recreation (C++ / SFML)
+# Street Fighter II Recreation (C++ / SFML)
 
-**PREVIEW VIDEO LINK:** [Watch the gameplay video](https://drive.google.com/file/d/1vPtcj7CI7zcAfPUd1NIYvbD8SOh29r/view?usp=sharing)
-Overview
+###  [PREVIEW VIDEO](https://drive.google.com/file/d/1vPtcj7CI7zcAfPUd1NIYvbD8SOh29r/view?usp=sharing)
+
+## Overview
 
 This project is a recreation of the classic 1991 arcade fighting game Street Fighter II, developed using C++ and SFML. The primary goal is to recreate core gameplay systems while gaining hands-on experience in game programming, software architecture, performance optimization, and AI development.
 
 Rather than relying on a game engine, this project focuses on implementing systems from scratch to better understand how fighting games function internally and to strengthen programming and problem-solving skills.
 
-Features Implemented
+## Features Implemented
 
 - Character animation system using sprite sheets
 - Frame-based animation handling
@@ -17,7 +18,7 @@ Features Implemented
 - Sprite management and rendering
 - Performance-conscious update and rendering workflows
 
-Features In Development
+## Features In Development
 
 - Controller support
 - Hitboxes and hurtboxes
@@ -29,7 +30,7 @@ Features In Development
 - Finite State Machine (FSM) based AI opponents
 - Gameplay balancing and optimization
 
-Technical Objectives
+## Technical Objectives
 
 This project is being used to explore and strengthen understanding of:
 
@@ -42,20 +43,20 @@ This project is being used to explore and strengthen understanding of:
 - Artificial Intelligence using Finite State Machines (FSMs)
 - Debugging and software engineering practices
 
-Technologies Used
+## Technologies Used
 
 - C++
 - SFML (Simple and Fast Multimedia Library)
 - Git
 - GitHub
 
-Project Status
+## Project Status
 
- -Active Development
+**Active Development**
 
-   -The project is currently under active development, with new gameplay systems and features being implemented continuously.
+The project is currently under active development, with new gameplay systems and features being implemented continuously.
 
-Learning Outcomes
+## Learning Outcomes
 
 Through this project, I am developing practical experience in:
 
@@ -66,7 +67,7 @@ Through this project, I am developing practical experience in:
 - AI behavior design
 - Building maintainable and scalable codebases
 
-Disclaimer
+## Disclaimer
 
 This project is a non-commercial educational recreation developed solely for learning, research, and portfolio purposes.
 
