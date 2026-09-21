@@ -1,7 +1,6 @@
 Street Fighter II Recreation (C++ / SFML)
 
-** PREVIEW VIDEO LINK : " https://drive.google.com/file/d/1vPtcj7CI7zcAfuPUd1NIYvbD8SOHr29r/view?usp=sharing " **
-
+**PREVIEW VIDEO LINK:** [Watch the gameplay video](https://drive.google.com/file/d/1vPtcj7CI7zcAfPUd1NIYvbD8SOh29r/view?usp=sharing)
 Overview
 
 This project is a recreation of the classic 1991 arcade fighting game Street Fighter II, developed using C++ and SFML. The primary goal is to recreate core gameplay systems while gaining hands-on experience in game programming, software architecture, performance optimization, and AI development.
