@@ -1,6 +1,6 @@
 # Street Fighter II Recreation (C++ / SFML)
 
-###  [PREVIEW VIDEO](https://drive.google.com/file/d/1vPtcj7CI7zcAfPUd1NIYvbD8SOh29r/view?usp=sharing)
+###  [PREVIEW VIDEO](https://drive.google.com/file/d/1vPtcj7CI7zcAfuPUd1NIYvbD8SOHr29r/view?usp=sharing)
 
 ## Overview
 
