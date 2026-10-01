@@ -2707,7 +2707,6 @@ int main() {
 
 			ryu_shadow.setPosition(ryu_char.getGlobalBounds().left + ryu_char.getGlobalBounds().width / 2, ryu_shadow.getPosition().y);
 
-
 		}
 
 		ryu_hitbox.left = ryu_char.getGlobalBounds().left;
