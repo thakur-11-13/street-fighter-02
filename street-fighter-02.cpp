@@ -1593,8 +1593,8 @@ void ryu_light_kick(Sprite& ryu_char, int& frame_counter_r, int& key_press_state
 			ryu_char.setOrigin(50, 94);
 			ryu_damage_box.width = 18;
 			ryu_damage_box.height = 18;
-			ryu_damage_box.left = ryu_char.getGlobalBounds().left + 1;
-			ryu_damage_box.top = ryu_char.getGlobalBounds().top - 10;
+			ryu_damage_box.left = ryu_char.getGlobalBounds().left - 9;
+			ryu_damage_box.top = ryu_char.getGlobalBounds().top - 5;
 			break;
 		case 48:
 			ryu_char.setTextureRect(IntRect(689, 267, 66, 92));
@@ -1941,8 +1941,8 @@ void ryu_hurt(Sprite& ryu_char, Sprite& chunli_char, float& time_frame_accum_r, 
 	}
 
 	if (ryu_char.getGlobalBounds().left + ryu_char.getGlobalBounds().width < 400) {
-		pos_x_r = pos_x_r + 1;
-		ryu_char.setPosition(ryu_char.getPosition().x + 1, ryu_char.getPosition().y);
+		pos_x_r = pos_x_r + 1.2;
+		ryu_char.setPosition(ryu_char.getPosition().x + 1.2, ryu_char.getPosition().y);
 	}
 
 }
@@ -2541,13 +2541,10 @@ int main() {
 		}
 
 		if (ryu_hitbox.intersects(chunli_damage_box) && (key_press_state_r & HURT_R) != HURT_R) {
-			key_press_state_r = 0;
+			key_press_state_r = key_press_state_r & (_S_ | _Q_);
 			key_press_state_r = key_press_state_r | ANIMATION_ON;
 			key_press_state_r = key_press_state_r | ANYKEY;
 			key_press_state_r = key_press_state_r | HURT_R;
-			if (Keyboard::isKeyPressed(Keyboard::Q)) {
-				key_press_state_r = key_press_state_r | _Q_;
-			}
 			ryu_damage_box.left = -100;
 			frame_counter_r = 0;
 			time_frame_accum_r = 7.5;
@@ -2700,7 +2697,13 @@ int main() {
 			case 33025:
 				ryu_hurt(ryu_char, chunli_char, time_frame_accum_r, frame_counter_r, ryu_shadow, key_press_state_r, pos_x_r, pos_y_r, x, hit, chunli_damage_box);
 				break;
+			case 33041:
+				ryu_hurt(ryu_char, chunli_char, time_frame_accum_r, frame_counter_r, ryu_shadow, key_press_state_r, pos_x_r, pos_y_r, x, hit, chunli_damage_box);
+				break;
 			case 33057:
+				ryu_hurt(ryu_char, chunli_char, time_frame_accum_r, frame_counter_r, ryu_shadow, key_press_state_r, pos_x_r, pos_y_r, x, hit, chunli_damage_box);
+				break;
+			case 33073:
 				ryu_hurt(ryu_char, chunli_char, time_frame_accum_r, frame_counter_r, ryu_shadow, key_press_state_r, pos_x_r, pos_y_r, x, hit, chunli_damage_box);
 				break;
 			};
