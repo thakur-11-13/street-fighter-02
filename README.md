@@ -18,7 +18,6 @@
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++">
   <img src="https://img.shields.io/badge/SFML-8CC445?style=flat-square" alt="SFML">
   <img src="https://img.shields.io/badge/Visual%20Studio%202022-5C2D91?style=flat-square&logo=visualstudio&logoColor=white" alt="Visual Studio 2022">
-  <img src="https://img.shields.io/badge/Status-Active%20Development-orange?style=flat-square" alt="Status: Active Development">
 </p>
 
 ---
