@@ -1,7 +1,5 @@
 # Street Fighter II Recreation (C++ / SFML)
 
-###  [PREVIEW VIDEO](https://drive.google.com/file/d/1vPtcj7CI7zcAfuPUd1NIYvbD8SOHr29r/view?usp=sharing)
-
 <p align="center">
   <b>A 2D fighting game built from scratch in C++ and SFML, with no game engine.</b>
 </p>
