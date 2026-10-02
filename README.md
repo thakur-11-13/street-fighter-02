@@ -120,6 +120,8 @@ Both characters can currently interact with each other, perform attacks, registe
 
 ---
 
+## Architecture
+
 ### Game Loop and Timing
 
 The loop is built around one rule: **responsiveness and consistency are separate problems, so they run on separate clocks.**
